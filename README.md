@@ -1,4 +1,4 @@
-# Vehicle Electric Ontology (VEO) is an [OWL](https://www.w3.org/OWL/)-based representation of [Vehicle Electric Container](https://www.vda.de/de/services/Publikationen/vehicle-electric-container-vec.html)(VEC)
+# Vehicle Electric Ontology (VEO) is an [OWL](https://www.w3.org/OWL/)-based representation of [Vehicle Electric Container](https://www.vda.de/de/services/Publikationen/vehicle-electric-container-vec.html) (VEC)
 
 VEO offers many advantages versus VEC/XML-Schema:
 - Semantic search
