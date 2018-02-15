@@ -1,0 +1,5132 @@
+# imports: http://datashapes.org/dash
+
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix veo: <http://www.vec-ontology.org/> .
+
+rdf:type owl:Ontology ;
+owl:imports <http://datashapes.org/dash> ;
+.
+
+
+veo:AbrasionResistanceClass a sh:NodeShape;
+	sh:property[
+		sh:path veo:classKey;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:referenceSystem;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+.
+
+veo:AbstractLocalizedString a sh:NodeShape;
+	sh:property[
+		sh:path veo:languageCode;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:in ( "Aa" "Ab" "Af" "Am" "Ar" "As" "Ay" "Az" "Ba" "Be" "Bg" "Bh" "Bi" "Bn" "Bo" "Br" "Ca" "Co" "Cs" "Cy" "Da" "De" "Dz" "El" "En" "Eo" "Es" "Et" "Eu" "Fa" "Fi" "Fj" "Fo" "Fr" "Fy" "Ga" "Gd" "Gl" "Gn" "Gu" "Ha" "Hi" "He" "Hr" "Hu" "Hy" "Ia" "Id" "Ie" "Ik" "In" "Is" "It" "Iu" "Iw" "Ja" "Ji" "Jw" "Ka" "Kk" "Kl" "Km" "Kn" "Ko" "Ks" "Ku" "Ky" "La" "Ln" "Lo" "Lt" "Lv" "Mg" "Mi" "Mk" "Ml" "Mn" "Mo" "Mr" "Ms" "Mt" "My" "Na" "Ne" "Nl" "No" "Oc" "Om" "Or" "Pa" "Pl" "Ps" "Pt" "Qu" "Rm" "Rn" "Ro" "Ru" "Rw" "Sa" "Sd" "Sg" "Sh" "Si" "Sk" "Sl" "Sm" "Sn" "So" "Sq" "Sr" "Ss" "St" "Su" "Sv" "Sw" "Ta" "Te" "Tg" "Th" "Zi" "Tk" "Tl" "Tn" "To" "Tr" "Ts" "Tt" "Tw" "Ug" "Uk" "Ur" "Uz" "Vi" "Vo" "Wo" "Xh" "Yi" "Yo" "Za" "Zh" "Zu");
+	]
+	sh:property[
+		sh:path veo:d_value;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+.
+
+veo:AbstractSlot a sh:NodeShape;
+	sh:property[
+		sh:path veo:slotNumber;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:slotSpecification;
+		sh:minCount 0;
+		sh:class veo:SlotSpecification;
+	]
+	sh:property[
+		sh:path veo:coding;
+		sh:minCount 0;
+		sh:class veo:Coding;
+	]
+.
+
+veo:AbstractSlotReference a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:referencedSlot;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:AbstractSlot;
+	]
+.
+
+veo:AliasIdentification a sh:NodeShape;
+	sh:property[
+		sh:path veo:identificationValue;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:scope;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:description;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AbstractLocalizedString;
+	]
+.
+
+veo:AntennaSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:fMin;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:fMax;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:impedance;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+.
+
+veo:Approval a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:description;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AbstractLocalizedString;
+	]
+	sh:property[
+		sh:path veo:companyInScope;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:status;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:in ( "NotYetApproved" "Approved" "Withdrawn");
+	]
+	sh:property[
+		sh:path veo:levelOfApproval;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:permission;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Permission;
+	]
+.
+
+veo:BSplineCurve a sh:NodeShape;
+	sh:property[
+		sh:path veo:degree;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:integer;
+	]
+	sh:property[
+		sh:path veo:controlPoint;
+		sh:minCount 0;
+		sh:class veo:CartesianPoint3D;
+	]
+.
+
+veo:BatterySpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:u;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:i;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:iCool;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:capacity;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+.
+
+veo:BoltMountedFixingSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:boltType;
+		sh:minCount 0;
+		sh:class veo:BoltMountedFixingSpecification;
+	]
+	sh:property[
+		sh:path veo:boltDiameter;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:boltHeight;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+.
+
+veo:BuildingBlockPositioning2D a sh:NodeShape;
+	sh:property[
+		sh:path veo:referenced2DBuildingBlock;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:BuildingBlockSpecification2D;
+	]
+	sh:property[
+		sh:path veo:centerPoint;
+		sh:minCount 0;
+		sh:class veo:CartesianPoint2D;
+	]
+.
+
+veo:BuildingBlockPositioning3D a sh:NodeShape;
+	sh:property[
+		sh:path veo:referenced3DBuildingBlock;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:BuildingBlockSpecification3D;
+	]
+	sh:property[
+		sh:path veo:positioning;
+		sh:minCount 0;
+		sh:class veo:Transformation3D;
+	]
+.
+
+veo:BuildingBlockSpecification2D a sh:NodeShape;
+	sh:property[
+		sh:path veo:baseUnit;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:Unit;
+	]
+	sh:property[
+		sh:path veo:boundingBox;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:CartesianDimension;
+	]
+	sh:property[
+		sh:path veo:cartesianPoint;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:CartesianPoint2D;
+	]
+	sh:property[
+		sh:path veo:geometryNode;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:GeometryNode2D;
+	]
+	sh:property[
+		sh:path veo:geometrySegment;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:GeometrySegment2D;
+	]
+	sh:property[
+		sh:path veo:placedElementViewItem;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:OccurrenceOrUsageViewItem2D;
+	]
+.
+
+veo:BuildingBlockSpecification3D a sh:NodeShape;
+	sh:property[
+		sh:path veo:zone;
+		sh:minCount 0;
+		sh:class veo:Zone;
+	]
+	sh:property[
+		sh:path veo:baseUnit;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:Unit;
+	]
+	sh:property[
+		sh:path veo:cartesianPoint;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:CartesianPoint3D;
+	]
+	sh:property[
+		sh:path veo:geometryNode;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:GeometryNode3D;
+	]
+	sh:property[
+		sh:path veo:geometrySegment;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:GeometrySegment3D;
+	]
+	sh:property[
+		sh:path veo:placedElementViewItem3D;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:OccurrenceOrUsageViewItem3D;
+	]
+.
+
+veo:CableDuctOutlet a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:placementPoint;
+		sh:minCount 0;
+		sh:class veo:PlacementPoint;
+	]
+.
+
+veo:CableDuctRole a sh:NodeShape;
+	sh:property[
+		sh:path veo:cableDuctSpecification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:CableDuctSpecification;
+	]
+.
+
+veo:CableDuctSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:outlet;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:CableDuctOutlet;
+	]
+.
+
+veo:CableLeadThrough a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:placementPoint;
+		sh:minCount 0;
+		sh:class veo:PlacementPoint;
+	]
+.
+
+veo:CartesianDimension a sh:NodeShape;
+	sh:property[
+		sh:path veo:d_height;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:double;
+	]
+	sh:property[
+		sh:path veo:d_width;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:double;
+	]
+.
+
+veo:CartesianPoint2D a sh:NodeShape;
+	sh:property[
+		sh:path veo:x;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:double;
+	]
+	sh:property[
+		sh:path veo:y;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:double;
+	]
+	sh:property[
+		sh:path veo:sheet;
+		sh:minCount 0;
+		sh:class veo:SheetOrChapter;
+	]
+.
+
+veo:CartesianPoint3D a sh:NodeShape;
+	sh:property[
+		sh:path veo:x;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:double;
+	]
+	sh:property[
+		sh:path veo:y;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:double;
+	]
+	sh:property[
+		sh:path veo:z;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:double;
+	]
+.
+
+veo:CartesianVector2D a sh:NodeShape;
+	sh:property[
+		sh:path veo:x;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:double;
+	]
+	sh:property[
+		sh:path veo:y;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:double;
+	]
+.
+
+veo:CartesianVector3D a sh:NodeShape;
+	sh:property[
+		sh:path veo:x;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:double;
+	]
+	sh:property[
+		sh:path veo:y;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:double;
+	]
+	sh:property[
+		sh:path veo:z;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:double;
+	]
+.
+
+veo:Cavity a sh:NodeShape;
+	sh:property[
+		sh:path veo:available;
+		sh:minCount 0;
+		sh:datatype xsd:boolean;
+	]
+	sh:property[
+		sh:path veo:cavityNumber;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:wireAddOn;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:cavitySpecification;
+		sh:minCount 0;
+		sh:class veo:CavitySpecification;
+	]
+.
+
+veo:CavityMapping a sh:NodeShape;
+	sh:property[
+		sh:path veo:identificationA;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:identificationB;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+.
+
+veo:CavityMounting a sh:NodeShape;
+	sh:property[
+		sh:path veo:equippedCavityRef;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:CavityReference;
+	]
+	sh:property[
+		sh:path veo:replacedPlug;
+		sh:minCount 0;
+		sh:class veo:CavityPlugRole;
+	]
+	sh:property[
+		sh:path veo:cavityMountingDetail;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:CavityMountingDetail;
+	]
+.
+
+veo:CavityMountingDetail a sh:NodeShape;
+	sh:property[
+		sh:path veo:equippedCavityRef;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:CavityReference;
+	]
+	sh:property[
+		sh:path veo:terminalReceptionReference;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:TerminalReceptionReference;
+	]
+.
+
+veo:CavityPlugRole a sh:NodeShape;
+	sh:property[
+		sh:path veo:cavityPlugSpecification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:CavityPlugSpecification;
+	]
+	sh:property[
+		sh:path veo:pluggedCavityRef;
+		sh:minCount 0;
+		sh:class veo:CavityReference;
+	]
+.
+
+veo:CavityPlugSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:cavityDiameter;
+		sh:minCount 0;
+		sh:class veo:ValueRange;
+	]
+	sh:property[
+		sh:path veo:hardness;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:sealingClass;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:SealingClass;
+	]
+.
+
+veo:CavityReference a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:componentPort;
+		sh:minCount 0;
+		sh:class veo:ComponentPort;
+	]
+	sh:property[
+		sh:path veo:referencedCavity;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:Cavity;
+	]
+.
+
+veo:CavitySealRole a sh:NodeShape;
+	sh:property[
+		sh:path veo:cavitySealSpecification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:CavitySealSpecification;
+	]
+.
+
+veo:CavitySealSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:cavityDiameter;
+		sh:minCount 0;
+		sh:class veo:ValueRange;
+	]
+	sh:property[
+		sh:path veo:hardness;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:sealingClass;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:SealingClass;
+	]
+	sh:property[
+		sh:path veo:wireElementOutsideDiameter;
+		sh:minCount 0;
+		sh:class veo:ValueRange;
+	]
+	sh:property[
+		sh:path veo:wireReceptionType;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:compatibleTerminalType;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:TerminalType;
+	]
+.
+
+veo:CavitySpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:angle;
+		sh:minCount 0;
+		sh:maxCount 2;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:cavityDesign;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:cavityDiameter;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:maxWireElementOutsideDiameter;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:primaryLockingType;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:sealable;
+		sh:minCount 0;
+		sh:datatype xsd:boolean;
+	]
+	sh:property[
+		sh:path veo:compatibleTerminalType;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:TerminalType;
+	]
+.
+
+veo:ChangeDescription a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:label;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:description;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AbstractLocalizedString;
+	]
+	sh:property[
+		sh:path veo:approver;
+		sh:minCount 0;
+		sh:class veo:Person;
+	]
+	sh:property[
+		sh:path veo:changeDate;
+		sh:minCount 0;
+		sh:datatype xsd:dateTime;
+	]
+	sh:property[
+		sh:path veo:responsibleDesigner;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:Person;
+	]
+	sh:property[
+		sh:path veo:relatedChangeRequest;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:datatype xsd:string;
+	]
+.
+
+veo:Coding a sh:NodeShape;
+	sh:property[
+		sh:path veo:d_coding;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+.
+
+veo:Color a sh:NodeShape;
+	sh:property[
+		sh:path veo:key;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:referenceSystem;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:description;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:LocalizedString;
+	]
+.
+
+veo:CompatibilitySpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:compatibilityStatement;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:CompatibilityStatement;
+	]
+.
+
+veo:CompatibilityStatement a sh:NodeShape;
+	sh:property[
+		sh:path veo:hasCompatibility;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:boolean;
+	]
+	sh:property[
+		sh:path veo:cavity;
+		sh:minCount 0;
+		sh:class veo:Cavity;
+	]
+	sh:property[
+		sh:path veo:cavityPlugSpecification;
+		sh:minCount 0;
+		sh:class veo:CavityPlugSpecification;
+	]
+	sh:property[
+		sh:path veo:cavitySealSpecification;
+		sh:minCount 0;
+		sh:class veo:CavitySealSpecification;
+	]
+	sh:property[
+		sh:path veo:cavitySpecification;
+		sh:minCount 0;
+		sh:class veo:CavitySpecification;
+	]
+	sh:property[
+		sh:path veo:connectorHousingSpecification;
+		sh:minCount 0;
+		sh:class veo:ConnectorHousingSpecification;
+	]
+	sh:property[
+		sh:path veo:slot;
+		sh:minCount 0;
+		sh:class veo:AbstractSlot;
+	]
+	sh:property[
+		sh:path veo:terminalSpecification;
+		sh:minCount 0;
+		sh:class veo:TerminalSpecification;
+	]
+	sh:property[
+		sh:path veo:wireSpecification;
+		sh:minCount 0;
+		sh:class veo:WireSpecification;
+	]
+.
+
+veo:ComponentNode a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:abbreviation;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:LocalizedString;
+	]
+	sh:property[
+		sh:path veo:componentNodeType;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:description;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AbstractLocalizedString;
+	]
+	sh:property[
+		sh:path veo:networkNode;
+		sh:minCount 0;
+		sh:class veo:NetworkNode;
+	]
+	sh:property[
+		sh:path veo:realizedUsageNode;
+		sh:minCount 0;
+		sh:class veo:UsageNode;
+	]
+	sh:property[
+		sh:path veo:childNode;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:ComponentNode;
+	]
+	sh:property[
+		sh:path veo:componentPort;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:ComponentPort;
+	]
+.
+
+veo:ComponentPort a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:signalDirection;
+		sh:minCount 0;
+		sh:in ( "In" "Out" "InOut");
+	]
+	sh:property[
+		sh:path veo:description;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AbstractLocalizedString;
+	]
+	sh:property[
+		sh:path veo:networkPort;
+		sh:minCount 0;
+		sh:class veo:NetworkPort;
+	]
+	sh:property[
+		sh:path veo:signal;
+		sh:minCount 0;
+		sh:class veo:Signal;
+	]
+.
+
+veo:CompositeUnit a sh:NodeShape;
+	sh:property[
+		sh:path veo:factors;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:Unit;
+	]
+.
+
+veo:CompositionSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:component;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:PartOccurrence;
+	]
+.
+
+veo:ConductorCurrentInformation a sh:NodeShape;
+	sh:property[
+		sh:path veo:maxCurrent;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:environmentTemperature;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:voltage;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:NumericalValue;
+	]
+.
+
+veo:ConductorSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:crossSectionArea;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:massInformation;
+		sh:minCount 0;
+		sh:class veo:MassInformation;
+	]
+	sh:property[
+		sh:path veo:material;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Material;
+	]
+	sh:property[
+		sh:path veo:resistance;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:structure;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:d_type;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:numberOfStrands;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:platingMaterial;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Material;
+	]
+	sh:property[
+		sh:path veo:strandDiameter;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:voltageRange;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:currentInformation;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:ConductorCurrentInformation;
+	]
+.
+
+veo:ConfigurableElement a sh:NodeShape;
+	sh:property[
+		sh:path veo:configInfo;
+		sh:minCount 0;
+		sh:class veo:VariantConfiguration;
+	]
+.
+
+veo:ConformanceClass a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:version;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:url;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+.
+
+veo:Connection a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:description;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AbstractLocalizedString;
+	]
+	sh:property[
+		sh:path veo:installationInstruction;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Instruction;
+	]
+	sh:property[
+		sh:path veo:net;
+		sh:minCount 0;
+		sh:class veo:Net;
+	]
+	sh:property[
+		sh:path veo:signal;
+		sh:minCount 0;
+		sh:class veo:Signal;
+	]
+	sh:property[
+		sh:path veo:connectionEnd;
+		sh:minCount 2;
+		sh:maxCount *;
+		sh:class veo:ConnectionEnd;
+	]
+.
+
+veo:ConnectionEnd a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:isExternalEnd;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:boolean;
+	]
+	sh:property[
+		sh:path veo:gender;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:installationInstruction;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Instruction;
+	]
+	sh:property[
+		sh:path veo:connectedComponentPort;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:ComponentPort;
+	]
+.
+
+veo:ConnectionGroup a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:connectionGroupType;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:installationInstruction;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Instruction;
+	]
+	sh:property[
+		sh:path veo:description;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AbstractLocalizedString;
+	]
+	sh:property[
+		sh:path veo:connection;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:Connection;
+	]
+	sh:property[
+		sh:path veo:netGroup;
+		sh:minCount 0;
+		sh:class veo:NetGroup;
+	]
+	sh:property[
+		sh:path veo:subGroup;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:ConnectionGroup;
+	]
+.
+
+veo:ConnectionSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:componentNode;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:ComponentNode;
+	]
+	sh:property[
+		sh:path veo:connection;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Connection;
+	]
+	sh:property[
+		sh:path veo:connectionGroup;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:ConnectionGroup;
+	]
+.
+
+veo:ConnectorHousingRole a sh:NodeShape;
+	sh:property[
+		sh:path veo:sealState;
+		sh:minCount 0;
+		sh:in ( "Unsealed" "Sealed");
+	]
+	sh:property[
+		sh:path veo:componentNode;
+		sh:minCount 0;
+		sh:class veo:ComponentNode;
+	]
+	sh:property[
+		sh:path veo:connectorHousingSpecification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:ConnectorHousingSpecification;
+	]
+	sh:property[
+		sh:path veo:slotReference;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AbstractSlotReference;
+	]
+.
+
+veo:ConnectorHousingSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:averageWireLengthAddOn;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:voltageRange;
+		sh:minCount 0;
+		sh:class veo:ValueRange;
+	]
+	sh:property[
+		sh:path veo:coupleable;
+		sh:minCount 0;
+		sh:datatype xsd:boolean;
+	]
+	sh:property[
+		sh:path veo:sealingClass;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:SealingClass;
+	]
+	sh:property[
+		sh:path veo:coding;
+		sh:minCount 0;
+		sh:class veo:Coding;
+	]
+	sh:property[
+		sh:path veo:segmentConnectionPoint;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:SegmentConnectionPoint;
+	]
+	sh:property[
+		sh:path veo:slot;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AbstractSlot;
+	]
+.
+
+veo:ContactPoint a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:mountedTerminal;
+		sh:minCount 0;
+		sh:class veo:TerminalRole;
+	]
+	sh:property[
+		sh:path veo:cavityMounting;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:CavityMounting;
+	]
+	sh:property[
+		sh:path veo:wireMounting;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:WireMounting;
+	]
+.
+
+veo:ContactSystem a sh:NodeShape;
+	sh:property[
+		sh:path veo:contactResistance;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:joiningForce;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:firstTerminal;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:PartVersion;
+	]
+	sh:property[
+		sh:path veo:referencedCoreSpecification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:ConductorSpecification;
+	]
+	sh:property[
+		sh:path veo:secondTerminal;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:PartVersion;
+	]
+.
+
+veo:ContactSystemSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:contactSystem;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:ContactSystem;
+	]
+.
+
+veo:ContactingSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:contactPoint;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:ContactPoint;
+	]
+.
+
+veo:Contract a sh:NodeShape;
+	sh:property[
+		sh:path veo:companyName;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:contractRole;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:in ( "Oem" "Supplier" "Manufacturer");
+	]
+.
+
+veo:CopyrightInformation a sh:NodeShape;
+	sh:property[
+		sh:path veo:copyrightNote;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:LocalizedString;
+	]
+	sh:property[
+		sh:path veo:item;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:ItemVersion;
+	]
+.
+
+veo:CoreSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:outsideDiameter;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+.
+
+veo:CorrugatedPipeSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:corrugationHeight;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:corrugationWidth;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:corrugationGradient;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+.
+
+veo:Creation a sh:NodeShape;
+	sh:property[
+		sh:path veo:creationDate;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:dateTime;
+	]
+	sh:property[
+		sh:path veo:creator;
+		sh:minCount 0;
+		sh:class veo:Person;
+	]
+	sh:property[
+		sh:path veo:responsibleDesigner;
+		sh:minCount 0;
+		sh:class veo:Person;
+	]
+.
+
+veo:CustomProperty a sh:NodeShape;
+	sh:property[
+		sh:path veo:propertyType;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+.
+
+veo:CustomUnit a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+.
+
+veo:Dimension a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:dimensionValue;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:dimensionAnchor;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:DimensionAnchor;
+	]
+	sh:property[
+		sh:path veo:referenceAnchor;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:DimensionAnchor;
+	]
+	sh:property[
+		sh:path veo:definedLocations;
+		sh:minCount 0;
+		sh:maxCount 2;
+		sh:class veo:Location;
+	]
+	sh:property[
+		sh:path veo:path;
+		sh:minCount 0;
+		sh:class veo:Path;
+	]
+.
+
+veo:DocumentBasedInstruction a sh:NodeShape;
+	sh:property[
+		sh:path veo:referencedDocument;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:DocumentVersion;
+	]
+	sh:property[
+		sh:path veo:referencedSheetOrChapter;
+		sh:minCount 0;
+		sh:class veo:SheetOrChapter;
+	]
+.
+
+veo:DocumentVersion a sh:NodeShape;
+	sh:property[
+		sh:path veo:documentNumber;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:documentType;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:d_documentVersion;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:creatingSystem;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:dataFormat;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:fileName;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:d_location;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:numberOfSheets;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:referencedPart;
+		sh:minCount 0;
+		sh:class veo:PartVersion;
+	]
+	sh:property[
+		sh:path veo:relatedDocument;
+		sh:minCount 0;
+		sh:class veo:DocumentVersion;
+	]
+	sh:property[
+		sh:path veo:itemEquivalence;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:ItemEquivalence;
+	]
+	sh:property[
+		sh:path veo:sheetOrChapter;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:SheetOrChapter;
+	]
+	sh:property[
+		sh:path veo:specification;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Specification;
+	]
+.
+
+veo:EEComponentRole a sh:NodeShape;
+	sh:property[
+		sh:path veo:eEComponentSpecification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:EEComponentSpecification;
+	]
+	sh:property[
+		sh:path veo:componentNode;
+		sh:minCount 0;
+		sh:class veo:ComponentNode;
+	]
+	sh:property[
+		sh:path veo:mountingCavity;
+		sh:minCount 0;
+		sh:class veo:CavityReference;
+	]
+	sh:property[
+		sh:path veo:mountingHousing;
+		sh:minCount 0;
+		sh:class veo:ConnectorHousingRole;
+	]
+	sh:property[
+		sh:path veo:mountingSlot;
+		sh:minCount 0;
+		sh:class veo:AbstractSlotReference;
+	]
+	sh:property[
+		sh:path veo:housingComponentRef;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:HousingComponentReference;
+	]
+.
+
+veo:EEComponentSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:powerConsumption;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:PowerConsumption;
+	]
+	sh:property[
+		sh:path veo:housingComponent;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:HousingComponent;
+	]
+.
+
+veo:EdgeMountedFixingSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:edgeThickness;
+		sh:minCount 0;
+		sh:class veo:ValueRange;
+	]
+.
+
+veo:ExtendableElement a sh:NodeShape;
+	sh:property[
+		sh:path veo:customProperty;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:CustomProperty;
+	]
+.
+
+veo:ExternalMapping a sh:NodeShape;
+	sh:property[
+		sh:path veo:externalReference;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:mappedElement;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:ExtendableElement;
+	]
+.
+
+veo:ExternalMappingSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:mappedDocument;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:DocumentVersion;
+	]
+	sh:property[
+		sh:path veo:mappings;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:ExternalMapping;
+	]
+.
+
+veo:FileBasedInstruction a sh:NodeShape;
+	sh:property[
+		sh:path veo:fileName;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:lastModified;
+		sh:minCount 0;
+		sh:datatype xsd:dateTime;
+	]
+	sh:property[
+		sh:path veo:dataFormat;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:d_location;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+.
+
+veo:FillerSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:material;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Material;
+	]
+	sh:property[
+		sh:path veo:diameter;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+.
+
+veo:FittingOutlet a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:innerDiameter;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:outerDiameter;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:nominalSize;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:placementPoint;
+		sh:minCount 0;
+		sh:class veo:PlacementPoint;
+	]
+.
+
+veo:FittingSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:form;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:outlet;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:FittingOutlet;
+	]
+.
+
+veo:FixingRole a sh:NodeShape;
+	sh:property[
+		sh:path veo:fixingSpecification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:FixingSpecification;
+	]
+.
+
+veo:FixingSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:offset;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+.
+
+veo:FuseSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:fuseType;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:iMax;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+.
+
+veo:GeneralTechnicalPartSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:colorInformation;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Color;
+	]
+	sh:property[
+		sh:path veo:massInformation;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:MassInformation;
+	]
+	sh:property[
+		sh:path veo:materialInformation;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Material;
+	]
+	sh:property[
+		sh:path veo:robustnessProperties;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:RobustnessProperties;
+	]
+	sh:property[
+		sh:path veo:temperatureInformation;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:TemperatureInformation;
+	]
+	sh:property[
+		sh:path veo:partRelation;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:PartRelation;
+	]
+.
+
+veo:GeometryNode a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:aliasId;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AliasIdentification;
+	]
+	sh:property[
+		sh:path veo:referenceNode;
+		sh:minCount 0;
+		sh:class veo:TopologyNode;
+	]
+.
+
+veo:GeometryNode2D a sh:NodeShape;
+	sh:property[
+		sh:path veo:cartesianPoint;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:CartesianPoint2D;
+	]
+.
+
+veo:GeometryNode3D a sh:NodeShape;
+	sh:property[
+		sh:path veo:cartesianPoint;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:CartesianPoint3D;
+	]
+.
+
+veo:GeometrySegment a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:aliasId;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AliasIdentification;
+	]
+	sh:property[
+		sh:path veo:referenceSegment;
+		sh:minCount 0;
+		sh:class veo:TopologySegment;
+	]
+.
+
+veo:GeometrySegment2D a sh:NodeShape;
+	sh:property[
+		sh:path veo:startVector;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:CartesianVector2D;
+	]
+	sh:property[
+		sh:path veo:endVector;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:CartesianVector2D;
+	]
+	sh:property[
+		sh:path veo:endNode;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:GeometryNode2D;
+	]
+	sh:property[
+		sh:path veo:startNode;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:GeometryNode2D;
+	]
+	sh:property[
+		sh:path veo:pathSegment;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:PathSegment;
+	]
+.
+
+veo:GeometrySegment3D a sh:NodeShape;
+	sh:property[
+		sh:path veo:startVector;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:CartesianVector3D;
+	]
+	sh:property[
+		sh:path veo:endVector;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:CartesianVector3D;
+	]
+	sh:property[
+		sh:path veo:endNode;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:GeometryNode3D;
+	]
+	sh:property[
+		sh:path veo:startNode;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:GeometryNode3D;
+	]
+	sh:property[
+		sh:path veo:bSplineCurve;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:BSplineCurve;
+	]
+.
+
+veo:GrommetRole a sh:NodeShape;
+	sh:property[
+		sh:path veo:grommetSpecification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:GrommetSpecification;
+	]
+.
+
+veo:GrommetSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:hardness;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:holeDiameter;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:plateThickness;
+		sh:minCount 0;
+		sh:class veo:ValueRange;
+	]
+	sh:property[
+		sh:path veo:grommetType;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:sealingClass;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:SealingClass;
+	]
+	sh:property[
+		sh:path veo:cableLeadThrough;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:CableLeadThrough;
+	]
+.
+
+veo:HarnessDrawingSpecification2D a sh:NodeShape;
+	sh:property[
+		sh:path veo:buildingBlockPositionings;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:BuildingBlockPositioning2D;
+	]
+.
+
+veo:HarnessGeometrySpecification3D a sh:NodeShape;
+	sh:property[
+		sh:path veo:d_type;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:in ( "Dmu" "Formboard");
+	]
+	sh:property[
+		sh:path veo:buildingBlockPositionings;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:BuildingBlockPositioning3D;
+	]
+.
+
+veo:HoleMountedFixingSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:holeDiameter;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:plateThickness;
+		sh:minCount 0;
+		sh:class veo:ValueRange;
+	]
+	sh:property[
+		sh:path veo:holeType;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:holeShape;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+.
+
+veo:HousingComponent a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:description;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AbstractLocalizedString;
+	]
+	sh:property[
+		sh:path veo:housingSpecification;
+		sh:minCount 0;
+		sh:class veo:ConnectorHousingSpecification;
+	]
+	sh:property[
+		sh:path veo:pinComponent;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:PinComponent;
+	]
+.
+
+veo:HousingComponentReference a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:housingComponent;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:HousingComponent;
+	]
+	sh:property[
+		sh:path veo:pinComponentRef;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:PinComponentReference;
+	]
+.
+
+veo:IECUnit a sh:NodeShape;
+	sh:property[
+		sh:path veo:iecUnitName;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:in ( "Bit" "Byte");
+	]
+	sh:property[
+		sh:path veo:iecPrefix;
+		sh:minCount 0;
+		sh:in ( "Yobi" "Zebi" "Exbi" "Pebi" "Tebi" "Gibi" "Mebi" "Kibi");
+	]
+.
+
+veo:ImperialUnit a sh:NodeShape;
+	sh:property[
+		sh:path veo:imperialUnitName;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:in ( "Thou" "Inch" "Foot" "Yard" "Chain" "Furlong" "Mile" "League" "FluidOunce" "Gill" "Pint" "Quart" "Gallon" "Grain" "Drachm" "Ounce" "Pound" "Stone" "Quarter" "HundredWeight" "Ton" "Perch" "Rood" "Acre");
+	]
+.
+
+veo:InsulationSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:baseColor;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Color;
+	]
+	sh:property[
+		sh:path veo:firstIdentificationColor;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Color;
+	]
+	sh:property[
+		sh:path veo:secondIdentificationColor;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Color;
+	]
+	sh:property[
+		sh:path veo:labelIdentificationColor;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Color;
+	]
+	sh:property[
+		sh:path veo:labelIdentificationType;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:labelIdentificationValue;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:material;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Material;
+	]
+	sh:property[
+		sh:path veo:thickness;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+.
+
+veo:InternalTerminalConnection a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:terminalReception;
+		sh:minCount 0;
+		sh:class veo:TerminalReception;
+	]
+	sh:property[
+		sh:path veo:wireReception;
+		sh:minCount 0;
+		sh:class veo:WireReception;
+	]
+.
+
+veo:ItemEquivalence a sh:NodeShape;
+	sh:property[
+		sh:path veo:companyName;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:item;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:ItemVersion;
+	]
+.
+
+veo:ItemHistoryEntry a sh:NodeShape;
+	sh:property[
+		sh:path veo:d_type;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:in ( "Derivation" "Sequence");
+	]
+	sh:property[
+		sh:path veo:predecessorVersion;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:ItemVersion;
+	]
+	sh:property[
+		sh:path veo:successorVersion;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:ItemVersion;
+	]
+.
+
+veo:ItemVersion a sh:NodeShape;
+	sh:property[
+		sh:path veo:abbreviation;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:LocalizedString;
+	]
+	sh:property[
+		sh:path veo:description;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AbstractLocalizedString;
+	]
+	sh:property[
+		sh:path veo:companyName;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:processingInstruction;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Instruction;
+	]
+	sh:property[
+		sh:path veo:contract;
+		sh:minCount 0;
+		sh:class veo:Contract;
+	]
+	sh:property[
+		sh:path veo:approval;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Approval;
+	]
+	sh:property[
+		sh:path veo:changeDescription;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:ChangeDescription;
+	]
+	sh:property[
+		sh:path veo:creation;
+		sh:minCount 0;
+		sh:class veo:Creation;
+	]
+.
+
+veo:LocalizedStringProperty a sh:NodeShape;
+	sh:property[
+		sh:path veo:value;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:LocalizedString;
+	]
+.
+
+veo:LocalizedTypedString a sh:NodeShape;
+	sh:property[
+		sh:path veo:d_type;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+.
+
+veo:Location a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:matchingId;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:placedPlacementPoints;
+		sh:minCount 0;
+		sh:class veo:PlacementPointReference;
+	]
+.
+
+veo:Mapping a sh:NodeShape;
+	sh:property[
+		sh:path veo:a;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:PartVersion;
+	]
+	sh:property[
+		sh:path veo:b;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:PartVersion;
+	]
+	sh:property[
+		sh:path veo:slotMapping;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:SlotMapping;
+	]
+.
+
+veo:MappingSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:mapping;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Mapping;
+	]
+.
+
+veo:MassInformation a sh:NodeShape;
+	sh:property[
+		sh:path veo:determinationType;
+		sh:minCount 0;
+		sh:in ( "Calculated" "Measured" "Estimated");
+	]
+	sh:property[
+		sh:path veo:value;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:NumericalValue;
+	]
+.
+
+veo:Material a sh:NodeShape;
+	sh:property[
+		sh:path veo:key;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:referenceSystem;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:description;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:LocalizedString;
+	]
+.
+
+veo:MatingDetail a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:firstTerminalReception;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:TerminalReceptionReference;
+	]
+	sh:property[
+		sh:path veo:secondTerminalReception;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:TerminalReceptionReference;
+	]
+.
+
+veo:MatingPoint a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:firstTerminalRole;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:TerminalRole;
+	]
+	sh:property[
+		sh:path veo:secondTerminalRole;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:TerminalRole;
+	]
+	sh:property[
+		sh:path veo:matingDetail;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:MatingDetail;
+	]
+.
+
+veo:MatingSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:matingPoint;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:MatingPoint;
+	]
+.
+
+veo:MeasurementPoint a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+.
+
+veo:MeasurementPointReference a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:measurementPoint;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:MeasurementPoint;
+	]
+.
+
+veo:ModularSlot a sh:NodeShape;
+	sh:property[
+		sh:path veo:optional;
+		sh:minCount 0;
+		sh:datatype xsd:boolean;
+	]
+	sh:property[
+		sh:path veo:allowedInserts;
+		sh:minCount 0;
+		sh:class veo:ConnectorHousingSpecification;
+	]
+.
+
+veo:ModularSlotReference a sh:NodeShape;
+	sh:property[
+		sh:path veo:usedInserts;
+		sh:minCount 0;
+		sh:class veo:ConnectorHousingRole;
+	]
+.
+
+veo:ModuleFamily a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:description;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AbstractLocalizedString;
+	]
+	sh:property[
+		sh:path veo:moduleInFamily;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:PartWithSubComponentsRole;
+	]
+.
+
+veo:ModuleFamilySpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:moduleFamily;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:ModuleFamily;
+	]
+.
+
+veo:ModuleList a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:description;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AbstractLocalizedString;
+	]
+	sh:property[
+		sh:path veo:completionComponents;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:PartOccurrence;
+	]
+	sh:property[
+		sh:path veo:moduleInList;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:PartWithSubComponentsRole;
+	]
+.
+
+veo:ModuleListSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:moduleListConfiguration;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:ModuleList;
+	]
+.
+
+veo:MultiCavityPlugSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:assignment;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:SealedCavitiesAssignment;
+	]
+.
+
+veo:MultiCavitySealSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:assignment;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:OpenCavitiesAssignment;
+	]
+.
+
+veo:Net a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:description;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AbstractLocalizedString;
+	]
+	sh:property[
+		sh:path veo:networkPort;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:NetworkPort;
+	]
+	sh:property[
+		sh:path veo:signal;
+		sh:minCount 0;
+		sh:class veo:Signal;
+	]
+.
+
+veo:NetGroup a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:netGroupType;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:description;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AbstractLocalizedString;
+	]
+	sh:property[
+		sh:path veo:net;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:Net;
+	]
+.
+
+veo:NetSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:net;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Net;
+	]
+	sh:property[
+		sh:path veo:netGroup;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:NetGroup;
+	]
+	sh:property[
+		sh:path veo:networkNode;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:NetworkNode;
+	]
+.
+
+veo:NetworkNode a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:abbreviation;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:LocalizedString;
+	]
+	sh:property[
+		sh:path veo:networkNodeType;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:description;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AbstractLocalizedString;
+	]
+	sh:property[
+		sh:path veo:realizedUsageNode;
+		sh:minCount 0;
+		sh:class veo:UsageNode;
+	]
+	sh:property[
+		sh:path veo:port;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:NetworkPort;
+	]
+.
+
+veo:NetworkPort a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:signalDirection;
+		sh:minCount 0;
+		sh:in ( "In" "Out" "InOut");
+	]
+	sh:property[
+		sh:path veo:description;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AbstractLocalizedString;
+	]
+	sh:property[
+		sh:path veo:signal;
+		sh:minCount 0;
+		sh:class veo:Signal;
+	]
+.
+
+veo:NodeLocation a sh:NodeShape;
+	sh:property[
+		sh:path veo:referencedNode;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:TopologyNode;
+	]
+.
+
+veo:NumericalValue a sh:NodeShape;
+	sh:property[
+		sh:path veo:valueComponent;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:double;
+	]
+	sh:property[
+		sh:path veo:tolerance;
+		sh:minCount 0;
+		sh:class veo:Tolerance;
+	]
+.
+
+veo:NumericalValueProperty a sh:NodeShape;
+	sh:property[
+		sh:path veo:value;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:NumericalValue;
+	]
+.
+
+veo:OccurrenceOrUsage a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:aliasId;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AliasIdentification;
+	]
+	sh:property[
+		sh:path veo:abbreviation;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:LocalizedString;
+	]
+	sh:property[
+		sh:path veo:description;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AbstractLocalizedString;
+	]
+	sh:property[
+		sh:path veo:realizedUsageNode;
+		sh:minCount 0;
+		sh:class veo:UsageNode;
+	]
+	sh:property[
+		sh:path veo:installationInstruction;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Instruction;
+	]
+	sh:property[
+		sh:path veo:role;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Role;
+	]
+.
+
+veo:OccurrenceOrUsageViewItem2D a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:aliasId;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AliasIdentification;
+	]
+	sh:property[
+		sh:path veo:gridSquare;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:occurrenceOrUsage;
+		sh:minCount 0;
+		sh:class veo:OccurrenceOrUsage;
+	]
+	sh:property[
+		sh:path veo:orientation;
+		sh:minCount 0;
+		sh:class veo:Transformation2D;
+	]
+.
+
+veo:OccurrenceOrUsageViewItem3D a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:aliasId;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AliasIdentification;
+	]
+	sh:property[
+		sh:path veo:occurrenceOrUsage;
+		sh:minCount 0;
+		sh:class veo:OccurrenceOrUsage;
+	]
+	sh:property[
+		sh:path veo:orientation;
+		sh:minCount 0;
+		sh:class veo:Transformation3D;
+	]
+.
+
+veo:OnPointPlacement a sh:NodeShape;
+	sh:property[
+		sh:path veo:location;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:Location;
+	]
+.
+
+veo:OnWayPlacement a sh:NodeShape;
+	sh:property[
+		sh:path veo:endLocation;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:Location;
+	]
+	sh:property[
+		sh:path veo:path;
+		sh:minCount 0;
+		sh:class veo:Path;
+	]
+	sh:property[
+		sh:path veo:startLocation;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:Location;
+	]
+.
+
+veo:OpenCavitiesAssignment a sh:NodeShape;
+	sh:property[
+		sh:path veo:openCavities;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:Cavity;
+	]
+.
+
+veo:OtherUnit a sh:NodeShape;
+	sh:property[
+		sh:path veo:otherUnitName;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:in ( "Pi" "Piece");
+	]
+.
+
+veo:PartOccurrence a sh:NodeShape;
+	sh:property[
+		sh:path veo:isSecondaryAlternative;
+		sh:minCount 0;
+		sh:datatype xsd:boolean;
+	]
+	sh:property[
+		sh:path veo:alternativeOccurrence;
+		sh:minCount 0;
+		sh:class veo:PartOccurrence;
+	]
+	sh:property[
+		sh:path veo:instanciatedOccurrence;
+		sh:minCount 0;
+		sh:class veo:PartOccurrence;
+	]
+	sh:property[
+		sh:path veo:part;
+		sh:minCount 0;
+		sh:class veo:PartVersion;
+	]
+	sh:property[
+		sh:path veo:realizedPartUsage;
+		sh:minCount 0;
+		sh:class veo:PartUsage;
+	]
+	sh:property[
+		sh:path veo:referenceElement;
+		sh:minCount 0;
+		sh:class veo:PartOccurrence;
+	]
+.
+
+veo:PartOrUsageRelatedSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:specialPartType;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:describedPart;
+		sh:minCount 0;
+		sh:class veo:PartVersion;
+	]
+.
+
+veo:PartRelation a sh:NodeShape;
+	sh:property[
+		sh:path veo:relationType;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:in ( "Mandatory" "Optional" "OneOfAll");
+	]
+	sh:property[
+		sh:path veo:accessoryPart;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:PartVersion;
+	]
+.
+
+veo:PartStructureSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:content;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:inBillOfMaterial;
+		sh:minCount 0;
+		sh:class veo:PartOccurrence;
+	]
+.
+
+veo:PartUsage a sh:NodeShape;
+	sh:property[
+		sh:path veo:primaryPartUsageType;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:in ( "Antenna" "Battery" "BoltMountedFixing" "CableDuct" "CavityPlug" "CavitySeal" "ConnectorHousing" "CorrugatedPipe" "EEComponent" "Fitting" "Fixing" "Fuse" "Grommet" "HoleMountedFixing" "MultiCavityPlug" "MultiCavitySeal" "Other" "PartStructure" "PluggableTerminal" "Relay" "RingTerminal" "ShrinkableTube" "SpliceTerminal" "Stripe" "Tape" "Terminal" "Tube" "Wire" "WireProtection");
+	]
+	sh:property[
+		sh:path veo:partOrUsageRelatedSpecification;
+		sh:minCount 0;
+		sh:class veo:PartOrUsageRelatedSpecification;
+	]
+.
+
+veo:PartUsageSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:partUsage;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:PartUsage;
+	]
+.
+
+veo:PartVersion a sh:NodeShape;
+	sh:property[
+		sh:path veo:partNumber;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:d_partVersion;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:primaryPartType;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:in ( "Antenna" "Battery" "BoltMountedFixing" "CableDuct" "CavityPlug" "CavitySeal" "ConnectorHousing" "CorrugatedPipe" "EEComponent" "Fitting" "Fixing" "Fuse" "Grommet" "HoleMountedFixing" "MultiCavityPlug" "MultiCavitySeal" "Other" "PartStructure" "PluggableTerminal" "Relay" "RingTerminal" "ShrinkableTube" "SpliceTerminal" "Stripe" "Tape" "Terminal" "Tube" "Wire" "WireProtection");
+	]
+	sh:property[
+		sh:path veo:isPreferredPart;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:preferredUseCase;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:aliasId;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AliasIdentification;
+	]
+	sh:property[
+		sh:path veo:project;
+		sh:minCount 0;
+		sh:class veo:Project;
+	]
+.
+
+veo:PartWithSubComponentsRole a sh:NodeShape;
+	sh:property[
+		sh:path veo:partStructureSpecification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:PartStructureSpecification;
+	]
+	sh:property[
+		sh:path veo:subComponent;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:OccurrenceOrUsage;
+	]
+.
+
+veo:Path a sh:NodeShape;
+	sh:property[
+		sh:path veo:segment;
+		sh:minCount 0;
+		sh:class veo:TopologySegment;
+	]
+.
+
+veo:PathSegment a sh:NodeShape;
+	sh:property[
+		sh:path veo:curveRadius;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:controlPoint;
+		sh:minCount 0;
+		sh:class veo:CartesianPoint2D;
+	]
+.
+
+veo:Permission a sh:NodeShape;
+	sh:property[
+		sh:path veo:d_permission;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:in ( "Seen" "Checked" "Released");
+	]
+	sh:property[
+		sh:path veo:permissionDate;
+		sh:minCount 0;
+		sh:datatype xsd:dateTime;
+	]
+	sh:property[
+		sh:path veo:permitter;
+		sh:minCount 0;
+		sh:class veo:Person;
+	]
+.
+
+veo:Person a sh:NodeShape;
+	sh:property[
+		sh:path veo:companyName;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:department;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:firstName;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:lastName;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:phoneNumber;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:emailAddress;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:aliasId;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AliasIdentification;
+	]
+.
+
+veo:PinComponent a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:description;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AbstractLocalizedString;
+	]
+	sh:property[
+		sh:path veo:pinSpecification;
+		sh:minCount 0;
+		sh:class veo:TerminalSpecification;
+	]
+	sh:property[
+		sh:path veo:referencedCavity;
+		sh:minCount 0;
+		sh:class veo:Cavity;
+	]
+	sh:property[
+		sh:path veo:behaviour;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:PinComponentBehavior;
+	]
+.
+
+veo:PinComponentBehavior a sh:NodeShape;
+	sh:property[
+		sh:path veo:signalDirection;
+		sh:minCount 0;
+		sh:in ( "In" "Out" "InOut");
+	]
+	sh:property[
+		sh:path veo:pinType;
+		sh:minCount 0;
+		sh:in ( "Resistive" "Inductive" "Capacitive" "Optical");
+	]
+	sh:property[
+		sh:path veo:applianceType;
+		sh:minCount 0;
+		sh:in ( "ShortTerm" "LongTerm");
+	]
+	sh:property[
+		sh:path veo:description;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AbstractLocalizedString;
+	]
+	sh:property[
+		sh:path veo:signal;
+		sh:minCount 0;
+		sh:class veo:Signal;
+	]
+	sh:property[
+		sh:path veo:currentInformation;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:PinCurrentInformation;
+	]
+	sh:property[
+		sh:path veo:opticalInformation;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:PinOpticalInformation;
+	]
+	sh:property[
+		sh:path veo:voltageInformation;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:PinVoltageInformation;
+	]
+.
+
+veo:PinComponentReference a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:pinComponent;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:PinComponent;
+	]
+	sh:property[
+		sh:path veo:terminalRole;
+		sh:minCount 0;
+		sh:class veo:TerminalRole;
+	]
+.
+
+veo:PinCurrentInformation a sh:NodeShape;
+	sh:property[
+		sh:path veo:d_type;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:in ( "MinCurrent" "MaxCurrent" "TypicalCurrent" "StandbyCurrent" "InitCurrent" "BlockCurrent" "StartStopCurrent" "OverrunCurrent");
+	]
+	sh:property[
+		sh:path veo:current;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:time;
+		sh:minCount 0;
+		sh:class veo:PinTiming;
+	]
+.
+
+veo:PinOpticalInformation a sh:NodeShape;
+	sh:property[
+		sh:path veo:frequency;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:attenuation;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+.
+
+veo:PinTiming a sh:NodeShape;
+	sh:property[
+		sh:path veo:d_type;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:in ( "InitTime" "StartStopTime" "OverrunTime" "BlockTime" "CurrentPeakDistances" "Duration");
+	]
+	sh:property[
+		sh:path veo:time;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:NumericalValue;
+	]
+.
+
+veo:PinVoltageInformation a sh:NodeShape;
+	sh:property[
+		sh:path veo:d_type;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:in ( "MinVoltage" "MaxVoltage" "TypicalVoltage" "StandbyVoltage" "InitVoltage" "BlockVoltage" "StartStopVoltage" "OverrunVoltage");
+	]
+	sh:property[
+		sh:path veo:voltage;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:time;
+		sh:minCount 0;
+		sh:class veo:PinTiming;
+	]
+.
+
+veo:PlaceableElementRole a sh:NodeShape;
+	sh:property[
+		sh:path veo:placeableElementSpecification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:PlaceableElementSpecification;
+	]
+	sh:property[
+		sh:path veo:measurementPointReference;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:MeasurementPointReference;
+	]
+	sh:property[
+		sh:path veo:placementPointReference;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:PlacementPointReference;
+	]
+.
+
+veo:PlaceableElementSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:validPlacementTypes;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:in ( "OnWay" "OnPoint");
+	]
+	sh:property[
+		sh:path veo:measurementPoint;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:MeasurementPoint;
+	]
+	sh:property[
+		sh:path veo:placementPoint;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:PlacementPoint;
+	]
+.
+
+veo:Placement a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:d_type;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:isOnTopOf;
+		sh:minCount 0;
+		sh:class veo:Placement;
+	]
+	sh:property[
+		sh:path veo:placedElement;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:PlaceableElementRole;
+	]
+.
+
+veo:PlacementPoint a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:segmentDiameter;
+		sh:minCount 0;
+		sh:class veo:ValueRange;
+	]
+.
+
+veo:PlacementPointReference a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:placementPoint;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:PlacementPoint;
+	]
+.
+
+veo:PlacementSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:dimension;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Dimension;
+	]
+	sh:property[
+		sh:path veo:placement;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Placement;
+	]
+.
+
+veo:PowerConsumption a sh:NodeShape;
+	sh:property[
+		sh:path veo:d_type;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:value;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:NumericalValue;
+	]
+.
+
+veo:Project a sh:NodeShape;
+	sh:property[
+		sh:path veo:carClassificationLevel2;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:carClassificationLevel3;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:carClassificationLevel4;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:description;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AbstractLocalizedString;
+	]
+.
+
+veo:RelaySpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:iMax;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:relaisType;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:coilContact;
+		sh:minCount 0;
+		sh:class veo:PinComponent;
+	]
+	sh:property[
+		sh:path veo:switchContact;
+		sh:minCount 0;
+		sh:class veo:PinComponent;
+	]
+.
+
+veo:RingTerminalSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:boltDiameter;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:thickness;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:d_boltType;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:outsideDimension;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:torsionProtection;
+		sh:minCount 0;
+		sh:datatype xsd:boolean;
+	]
+.
+
+veo:RobustnessProperties a sh:NodeShape;
+	sh:property[
+		sh:path veo:class;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:classKey;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:classReferenceSystem;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:hasRobustness;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:boolean;
+	]
+	sh:property[
+		sh:path veo:description;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:LocalizedString;
+	]
+.
+
+veo:Role a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+.
+
+veo:Routing a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:specialRoutedComment;
+		sh:minCount 0;
+		sh:class veo:LocalizedString;
+	]
+	sh:property[
+		sh:path veo:specialRouted;
+		sh:minCount 0;
+		sh:datatype xsd:boolean;
+	]
+	sh:property[
+		sh:path veo:mandatorySegment;
+		sh:minCount 0;
+		sh:class veo:TopologySegment;
+	]
+	sh:property[
+		sh:path veo:routedElement;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:RoutableElement;
+	]
+	sh:property[
+		sh:path veo:path;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:Path;
+	]
+.
+
+veo:RoutingSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:routing;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Routing;
+	]
+.
+
+veo:SIUnit a sh:NodeShape;
+	sh:property[
+		sh:path veo:siUnitName;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:in ( "Metre" "Gram" "Second" "Ampere" "Kelvin" "Mole" "Candela" "Radian" "Steradian" "Hertz" "Newton" "Pascal" "Joule" "Watt" "Coulomb" "Volt" "Farad" "Ohm" "Siemens" "Weber" "Tesla" "Henry" "DegreeCelsius" "Lumen" "Lux" "Becquerel" "Gray" "Sievert" "Katal");
+	]
+	sh:property[
+		sh:path veo:siPrefix;
+		sh:minCount 0;
+		sh:in ( "Yotta" "Zetta" "Exa" "Peta" "Tera" "Giga" "Mega" "Kilo" "Hecto" "Deca" "Deci" "Centi" "Milli" "Micro" "Nano" "Pico" "Femto" "Atto" "Zepto" "Yocto");
+	]
+.
+
+veo:SealedCavitiesAssignment a sh:NodeShape;
+	sh:property[
+		sh:path veo:sealedCavities;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:Cavity;
+	]
+.
+
+veo:SealingClass a sh:NodeShape;
+	sh:property[
+		sh:path veo:class;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:classKey;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:classReferenceSystem;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:description;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AbstractLocalizedString;
+	]
+.
+
+veo:SegmentConnectionPoint a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:placementPoint;
+		sh:minCount 0;
+		sh:class veo:PlacementPoint;
+	]
+	sh:property[
+		sh:path veo:reachableCavities;
+		sh:minCount 0;
+		sh:class veo:Cavity;
+	]
+.
+
+veo:SegmentCrossSectionArea a sh:NodeShape;
+	sh:property[
+		sh:path veo:area;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:valueDetermination;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:in ( "Calculated" "Measured" "Estimated");
+	]
+	sh:property[
+		sh:path veo:crossSectionAreaType;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+.
+
+veo:SegmentLength a sh:NodeShape;
+	sh:property[
+		sh:path veo:length;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:classification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:in ( "Designed" "Adapted");
+	]
+.
+
+veo:SegmentLocation a sh:NodeShape;
+	sh:property[
+		sh:path veo:offset;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:anchor;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:in ( "FromStartNode" "FromEndNode");
+	]
+	sh:property[
+		sh:path veo:referencedSegment;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:TopologySegment;
+	]
+.
+
+veo:SheetOrChapter a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:referencedPart;
+		sh:minCount 0;
+		sh:class veo:PartVersion;
+	]
+.
+
+veo:ShieldSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:opticalTissueDensity;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:windingType;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+.
+
+veo:ShrinkableTubeSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:shrinkingFactor;
+		sh:minCount 0;
+		sh:datatype xsd:double;
+	]
+	sh:property[
+		sh:path veo:maximumLongitudinalShrinkage;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:resin;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Material;
+	]
+	sh:property[
+		sh:path veo:waterAbsorbtion;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+.
+
+veo:Signal a sh:NodeShape;
+	sh:property[
+		sh:path veo:signalName;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:aliasId;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AliasIdentification;
+	]
+	sh:property[
+		sh:path veo:description;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AbstractLocalizedString;
+	]
+	sh:property[
+		sh:path veo:signalInformationType;
+		sh:minCount 0;
+		sh:in ( "Analog" "Digital");
+	]
+	sh:property[
+		sh:path veo:signalTransmissionMediumType;
+		sh:minCount 0;
+		sh:in ( "Electrical" "Optical" "Hydraulic" "Pneumatic");
+	]
+	sh:property[
+		sh:path veo:signalForm;
+		sh:minCount 0;
+		sh:in ( "SinusWave" "SquareWave");
+	]
+	sh:property[
+		sh:path veo:signalCurve;
+		sh:minCount 0;
+		sh:in ( "ContinuousSignal" "DiscreteSignal");
+	]
+	sh:property[
+		sh:path veo:recommendedConductorSpecification;
+		sh:minCount 0;
+		sh:class veo:ConductorSpecification;
+	]
+	sh:property[
+		sh:path veo:recommendedInsulationSpecification;
+		sh:minCount 0;
+		sh:class veo:InsulationSpecification;
+	]
+.
+
+veo:SignalSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:signal;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Signal;
+	]
+.
+
+veo:SimpleValueProperty a sh:NodeShape;
+	sh:property[
+		sh:path veo:d_value;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+.
+
+veo:Size a sh:NodeShape;
+	sh:property[
+		sh:path veo:width;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:height;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:NumericalValue;
+	]
+.
+
+veo:Slot a sh:NodeShape;
+	sh:property[
+		sh:path veo:colorInformation;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Color;
+	]
+	sh:property[
+		sh:path veo:sealingType;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:cavity;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:Cavity;
+	]
+.
+
+veo:SlotLayout a sh:NodeShape;
+	sh:property[
+		sh:path veo:gridX;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:gridY;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:rowCount;
+		sh:minCount 0;
+		sh:datatype xsd:integer;
+	]
+.
+
+veo:SlotMapping a sh:NodeShape;
+	sh:property[
+		sh:path veo:identificationA;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:identificationB;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:cavityMapping;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:CavityMapping;
+	]
+.
+
+veo:SlotReference a sh:NodeShape;
+	sh:property[
+		sh:path veo:cavityReference;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:CavityReference;
+	]
+.
+
+veo:SlotSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:emvProtectionRequired;
+		sh:minCount 0;
+		sh:datatype xsd:boolean;
+	]
+	sh:property[
+		sh:path veo:gender;
+		sh:minCount 0;
+		sh:in ( "Male" "Female" "Unspecified");
+	]
+	sh:property[
+		sh:path veo:layoutType;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:secondaryLocking;
+		sh:minCount 0;
+		sh:datatype xsd:boolean;
+	]
+	sh:property[
+		sh:path veo:numberOfCavities;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:integer;
+	]
+	sh:property[
+		sh:path veo:slotLayout;
+		sh:minCount 0;
+		sh:class veo:SlotLayout;
+	]
+.
+
+veo:SoundDampingClass a sh:NodeShape;
+	sh:property[
+		sh:path veo:classKey;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:referenceSystem;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+.
+
+veo:SpecificRole a sh:NodeShape;
+	sh:property[
+		sh:path veo:specificRoleType;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:specification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:PartOrUsageRelatedSpecification;
+	]
+.
+
+veo:Specification a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:description;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AbstractLocalizedString;
+	]
+.
+
+veo:SpliceTerminalRole a sh:NodeShape;
+	sh:property[
+		sh:path veo:spliceType;
+		sh:minCount 0;
+		sh:in ( "InlineSplice" "EndSplice");
+	]
+	sh:property[
+		sh:path veo:insulationState;
+		sh:minCount 0;
+		sh:in ( "Insulated" "Uninsulated");
+	]
+.
+
+veo:StripeSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:length;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:segmentDiameter;
+		sh:minCount 0;
+		sh:class veo:ValueRange;
+	]
+	sh:property[
+		sh:path veo:width;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+.
+
+veo:TapeSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:backing;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Material;
+	]
+	sh:property[
+		sh:path veo:adhesive;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Material;
+	]
+	sh:property[
+		sh:path veo:width;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:thickness;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:coilCoreDiameter;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:NumericalValue;
+	]
+.
+
+veo:TemperatureInformation a sh:NodeShape;
+	sh:property[
+		sh:path veo:temperatureRange;
+		sh:minCount 0;
+		sh:class veo:ValueRange;
+	]
+	sh:property[
+		sh:path veo:temperatureType;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+.
+
+veo:TerminalCurrentInformation a sh:NodeShape;
+	sh:property[
+		sh:path veo:currentRange;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:ValueRange;
+	]
+	sh:property[
+		sh:path veo:nominalVoltage;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:coreCrossSectionArea;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:NumericalValue;
+	]
+.
+
+veo:TerminalReception a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:gender;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:terminalReceptionSpecification;
+		sh:minCount 0;
+		sh:class veo:TerminalReceptionSpecification;
+	]
+.
+
+veo:TerminalReceptionReference a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:terminalReception;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:TerminalReception;
+	]
+.
+
+veo:TerminalReceptionSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:cavityDesign;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:platingMaterial;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Material;
+	]
+	sh:property[
+		sh:path veo:primaryLockingType;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:pullOutForce;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:terminalType;
+		sh:minCount 0;
+		sh:class veo:TerminalType;
+	]
+.
+
+veo:TerminalRole a sh:NodeShape;
+	sh:property[
+		sh:path veo:sealState;
+		sh:minCount 0;
+		sh:in ( "Unsealed" "Sealed");
+	]
+	sh:property[
+		sh:path veo:componentPort;
+		sh:minCount 0;
+		sh:class veo:ComponentPort;
+	]
+	sh:property[
+		sh:path veo:terminalSpecification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:TerminalSpecification;
+	]
+	sh:property[
+		sh:path veo:terminalReceptionReference;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:TerminalReceptionReference;
+	]
+	sh:property[
+		sh:path veo:wireReceptionReference;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:WireReceptionReference;
+	]
+.
+
+veo:TerminalSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:angle;
+		sh:minCount 0;
+		sh:maxCount 2;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:sealingClass;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:SealingClass;
+	]
+	sh:property[
+		sh:path veo:voltageRange;
+		sh:minCount 0;
+		sh:class veo:ValueRange;
+	]
+	sh:property[
+		sh:path veo:currentInformation;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:TerminalCurrentInformation;
+	]
+	sh:property[
+		sh:path veo:internalTerminalConnection;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:InternalTerminalConnection;
+	]
+	sh:property[
+		sh:path veo:terminalReception;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:TerminalReception;
+	]
+	sh:property[
+		sh:path veo:wireReception;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:WireReception;
+	]
+.
+
+veo:TerminalType a sh:NodeShape;
+	sh:property[
+		sh:path veo:name;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:nominalSize;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+.
+
+veo:TextBasedInstruction a sh:NodeShape;
+	sh:property[
+		sh:path veo:installationInstruction;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:LocalizedString;
+	]
+.
+
+veo:Tolerance a sh:NodeShape;
+	sh:property[
+		sh:path veo:lowerBoundary;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:double;
+	]
+	sh:property[
+		sh:path veo:upperBoundary;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:double;
+	]
+.
+
+veo:TopologyGroupSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:topologySpecification;
+		sh:minCount 0;
+		sh:class veo:TopologySpecification;
+	]
+.
+
+veo:TopologyNode a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:aliasId;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AliasIdentification;
+	]
+	sh:property[
+		sh:path veo:matchingPointId;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:processingInstruction;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:LocalizedString;
+	]
+	sh:property[
+		sh:path veo:nodeType;
+		sh:minCount 0;
+		sh:in ( "EndNode" "Junction" "Inliner");
+	]
+	sh:property[
+		sh:path veo:realizedUsageNode;
+		sh:minCount 0;
+		sh:class veo:UsageNode;
+	]
+.
+
+veo:TopologySegment a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:form;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:in ( "Circular" "NonCircular");
+	]
+	sh:property[
+		sh:path veo:aliasId;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AliasIdentification;
+	]
+	sh:property[
+		sh:path veo:processingInstruction;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:LocalizedString;
+	]
+	sh:property[
+		sh:path veo:endNode;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:TopologyNode;
+	]
+	sh:property[
+		sh:path veo:startNode;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:TopologyNode;
+	]
+	sh:property[
+		sh:path veo:crossSectionAreaInformation;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:SegmentCrossSectionArea;
+	]
+	sh:property[
+		sh:path veo:lengthInformation;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:SegmentLength;
+	]
+.
+
+veo:TopologySpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:topologyNode;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:TopologyNode;
+	]
+	sh:property[
+		sh:path veo:topologySegment;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:TopologySegment;
+	]
+	sh:property[
+		sh:path veo:zone;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Zone;
+	]
+.
+
+veo:Transformation2D a sh:NodeShape;
+	sh:property[
+		sh:path veo:a11;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:double;
+	]
+	sh:property[
+		sh:path veo:a12;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:double;
+	]
+	sh:property[
+		sh:path veo:a21;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:double;
+	]
+	sh:property[
+		sh:path veo:a22;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:double;
+	]
+	sh:property[
+		sh:path veo:origin;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:CartesianPoint2D;
+	]
+.
+
+veo:Transformation3D a sh:NodeShape;
+	sh:property[
+		sh:path veo:a11;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:double;
+	]
+	sh:property[
+		sh:path veo:a12;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:double;
+	]
+	sh:property[
+		sh:path veo:a13;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:double;
+	]
+	sh:property[
+		sh:path veo:a21;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:double;
+	]
+	sh:property[
+		sh:path veo:a22;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:double;
+	]
+	sh:property[
+		sh:path veo:a23;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:double;
+	]
+	sh:property[
+		sh:path veo:a31;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:double;
+	]
+	sh:property[
+		sh:path veo:a32;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:double;
+	]
+	sh:property[
+		sh:path veo:a33;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:double;
+	]
+	sh:property[
+		sh:path veo:origin;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:CartesianPoint3D;
+	]
+.
+
+veo:TubeSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:bendRadius;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:innerDiameter;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:wallThickness;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:isSlit;
+		sh:minCount 0;
+		sh:datatype xsd:boolean;
+	]
+	sh:property[
+		sh:path veo:nominalSize;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:outerDiameter;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+.
+
+veo:USUnit a sh:NodeShape;
+	sh:property[
+		sh:path veo:usUnitName;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:in ( "Thou" "Inch" "Foot" "Yard" "Chain" "Furlong" "Mile" "League" "FluidOunce" "Gill" "Pint" "Quart" "Gallon" "Grain" "Drachm" "Ounce" "Pound" "Stone" "Quarter" "HundredWeight" "Ton" "Perch" "Rood" "Acre" "AWG");
+	]
+.
+
+veo:Unit a sh:NodeShape;
+	sh:property[
+		sh:path veo:exponent;
+		sh:minCount 0;
+		sh:datatype xsd:integer;
+	]
+.
+
+veo:UsageConstraint a sh:NodeShape;
+	sh:property[
+		sh:path veo:d_type;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:in ( "Allow" "Deny");
+	]
+	sh:property[
+		sh:path veo:fromDate;
+		sh:minCount 0;
+		sh:datatype xsd:dateTime;
+	]
+	sh:property[
+		sh:path veo:toDate;
+		sh:minCount 0;
+		sh:datatype xsd:dateTime;
+	]
+	sh:property[
+		sh:path veo:fromSerialNumber;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:toSerialNumber;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:projectPhase;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:project;
+		sh:minCount 0;
+		sh:class veo:Project;
+	]
+	sh:property[
+		sh:path veo:usageNode;
+		sh:minCount 0;
+		sh:class veo:UsageNode;
+	]
+.
+
+veo:UsageConstraintSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:constrainedParts;
+		sh:minCount 0;
+		sh:class veo:PartVersion;
+	]
+	sh:property[
+		sh:path veo:partUsageConstraint;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:UsageConstraint;
+	]
+.
+
+veo:UsageNode a sh:NodeShape;
+	sh:property[
+		sh:path veo:abbreviation;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:LocalizedString;
+	]
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:description;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AbstractLocalizedString;
+	]
+	sh:property[
+		sh:path veo:usageNodeType;
+		sh:minCount 0;
+		sh:in ( "Component" "Inliner" "Splice" "Protection" "Fixing" "Grommet");
+	]
+	sh:property[
+		sh:path veo:usedInProject;
+		sh:minCount 0;
+		sh:class veo:Project;
+	]
+	sh:property[
+		sh:path veo:subUsageNodes;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:UsageNode;
+	]
+.
+
+veo:UsageNodeSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:usageNodes;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:UsageNode;
+	]
+.
+
+veo:ValueRange a sh:NodeShape;
+	sh:property[
+		sh:path veo:minimum;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:double;
+	]
+	sh:property[
+		sh:path veo:maximum;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:double;
+	]
+.
+
+veo:ValueRangeProperty a sh:NodeShape;
+	sh:property[
+		sh:path veo:value;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:ValueRange;
+	]
+.
+
+veo:ValueWithUnit a sh:NodeShape;
+	sh:property[
+		sh:path veo:unitComponent;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:Unit;
+	]
+.
+
+veo:VariantCode a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:codeType;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:description;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AbstractLocalizedString;
+	]
+.
+
+veo:VariantCodeSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:variantCode;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:VariantCode;
+	]
+.
+
+veo:VariantConfiguration a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:description;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AbstractLocalizedString;
+	]
+	sh:property[
+		sh:path veo:logisticControlString;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:logisticControlExpression;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:configurationType;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+.
+
+veo:VariantConfigurationSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:variantConfiguration;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:VariantConfiguration;
+	]
+.
+
+veo:VariantGroup a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:description;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AbstractLocalizedString;
+	]
+	sh:property[
+		sh:path veo:groupType;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:variantCode;
+		sh:minCount 0;
+		sh:class veo:VariantCode;
+	]
+.
+
+veo:VariantGroupSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:variantGroup;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:VariantGroup;
+	]
+.
+
+veo:VecContent a sh:NodeShape;
+	sh:property[
+		sh:path veo:vecVersion;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:generatingSystemName;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:dateOfCreation;
+		sh:minCount 0;
+		sh:datatype xsd:dateTime;
+	]
+	sh:property[
+		sh:path veo:generatingSystemVersion;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:compliantConformanceClass;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:ConformanceClass;
+	]
+	sh:property[
+		sh:path veo:contract;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Contract;
+	]
+	sh:property[
+		sh:path veo:copyrightInformation;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:CopyrightInformation;
+	]
+	sh:property[
+		sh:path veo:documentVersion;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:DocumentVersion;
+	]
+	sh:property[
+		sh:path veo:itemHistoryEntry;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:ItemHistoryEntry;
+	]
+	sh:property[
+		sh:path veo:partVersion;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:PartVersion;
+	]
+	sh:property[
+		sh:path veo:project;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Project;
+	]
+	sh:property[
+		sh:path veo:unit;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Unit;
+	]
+.
+
+veo:WireElement a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:wireElementSpecification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:WireElementSpecification;
+	]
+.
+
+veo:WireElementReference a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:connection;
+		sh:minCount 0;
+		sh:class veo:Connection;
+	]
+	sh:property[
+		sh:path veo:referencedWireElement;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:WireElement;
+	]
+	sh:property[
+		sh:path veo:signal;
+		sh:minCount 0;
+		sh:class veo:Signal;
+	]
+	sh:property[
+		sh:path veo:wireEnd;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:WireEnd;
+	]
+	sh:property[
+		sh:path veo:wireLength;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:WireLength;
+	]
+.
+
+veo:WireElementSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:type;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:WireType;
+	]
+	sh:property[
+		sh:path veo:minBendRadiusDynamic;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:minBendRadiusStatic;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:outsideDiameter;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:suitedForDynamicUse;
+		sh:minCount 0;
+		sh:datatype xsd:boolean;
+	]
+	sh:property[
+		sh:path veo:impedance;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:size;
+		sh:minCount 0;
+		sh:class veo:Size;
+	]
+	sh:property[
+		sh:path veo:conductorSpecification;
+		sh:minCount 0;
+		sh:class veo:ConductorSpecification;
+	]
+	sh:property[
+		sh:path veo:fillerSpecification;
+		sh:minCount 0;
+		sh:class veo:FillerSpecification;
+	]
+	sh:property[
+		sh:path veo:insulationSpecification;
+		sh:minCount 0;
+		sh:class veo:InsulationSpecification;
+	]
+	sh:property[
+		sh:path veo:subWireElementSpecification;
+		sh:minCount 0;
+		sh:class veo:WireElementSpecification;
+	]
+	sh:property[
+		sh:path veo:wireGroupSpecification;
+		sh:minCount 0;
+		sh:class veo:WireGroupSpecification;
+	]
+.
+
+veo:WireEnd a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:positionOnWire;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:double;
+	]
+.
+
+veo:WireGroupSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:groupType;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:lengthOfTwist;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+.
+
+veo:WireGrouping a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:relatedWireRole;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:WireElementReference;
+	]
+	sh:property[
+		sh:path veo:wireGroupSpecification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:WireGroupSpecification;
+	]
+.
+
+veo:WireGroupingSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:wireGrouping;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:WireGrouping;
+	]
+.
+
+veo:WireLength a sh:NodeShape;
+	sh:property[
+		sh:path veo:lengthType;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:lengthValue;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:NumericalValue;
+	]
+.
+
+veo:WireMounting a sh:NodeShape;
+	sh:property[
+		sh:path veo:mountedCavitySeal;
+		sh:minCount 0;
+		sh:class veo:CavitySealRole;
+	]
+	sh:property[
+		sh:path veo:referencedWireEnd;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:WireEnd;
+	]
+	sh:property[
+		sh:path veo:wireMountingDetail;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:WireMountingDetail;
+	]
+.
+
+veo:WireMountingDetail a sh:NodeShape;
+	sh:property[
+		sh:path veo:contactedWireReception;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:WireReceptionReference;
+	]
+	sh:property[
+		sh:path veo:referencedWireEnd;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:WireEnd;
+	]
+.
+
+veo:WireProtectionRole a sh:NodeShape;
+	sh:property[
+		sh:path veo:protectionLength;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:tapeOverlap;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:tapingDirection;
+		sh:minCount 0;
+		sh:in ( "Left" "Right");
+	]
+	sh:property[
+		sh:path veo:gradient;
+		sh:minCount 0;
+		sh:class veo:ValueWithUnit;
+	]
+	sh:property[
+		sh:path veo:wireProtectionSpecification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:WireProtectionSpecification;
+	]
+.
+
+veo:WireProtectionSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:abrasionResistanceClass;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AbrasionResistanceClass;
+	]
+	sh:property[
+		sh:path veo:soundDampingClass;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:SoundDampingClass;
+	]
+.
+
+veo:WireReception a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:placementPoint;
+		sh:minCount 0;
+		sh:class veo:PlacementPoint;
+	]
+	sh:property[
+		sh:path veo:wireReceptionSpecification;
+		sh:minCount 0;
+		sh:class veo:WireReceptionSpecification;
+	]
+.
+
+veo:WireReceptionReference a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:wireReception;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:WireReception;
+	]
+.
+
+veo:WireReceptionSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:coreCrossSectionArea;
+		sh:minCount 0;
+		sh:class veo:ValueRange;
+	]
+	sh:property[
+		sh:path veo:insulationDisplacementLength;
+		sh:minCount 0;
+		sh:class veo:NumericalValue;
+	]
+	sh:property[
+		sh:path veo:multiContact;
+		sh:minCount 0;
+		sh:datatype xsd:boolean;
+	]
+	sh:property[
+		sh:path veo:wireReceptionType;
+		sh:minCount 0;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:wireElementOutsideDiameter;
+		sh:minCount 0;
+		sh:class veo:ValueRange;
+	]
+	sh:property[
+		sh:path veo:platingMaterial;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Material;
+	]
+	sh:property[
+		sh:path veo:sealable;
+		sh:minCount 0;
+		sh:datatype xsd:boolean;
+	]
+.
+
+veo:WireRole a sh:NodeShape;
+	sh:property[
+		sh:path veo:wireSpecification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:WireSpecification;
+	]
+	sh:property[
+		sh:path veo:wireElementReference;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:WireElementReference;
+	]
+.
+
+veo:WireSpecification a sh:NodeShape;
+	sh:property[
+		sh:path veo:wireElementSpecification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:WireElementSpecification;
+	]
+	sh:property[
+		sh:path veo:wireElement;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class veo:WireElement;
+	]
+.
+
+veo:WireType a sh:NodeShape;
+	sh:property[
+		sh:path veo:d_type;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:referenceSystem;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+.
+
+veo:Zone a sh:NodeShape;
+	sh:property[
+		sh:path veo:identification;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:datatype xsd:string;
+	]
+	sh:property[
+		sh:path veo:description;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:AbstractLocalizedString;
+	]
+	sh:property[
+		sh:path veo:ambientTemperature;
+		sh:minCount 0;
+		sh:class veo:TemperatureInformation;
+	]
+	sh:property[
+		sh:path veo:requiredRobustnessProperties;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:RobustnessProperties;
+	]
+	sh:property[
+		sh:path veo:requiredSealingClass;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:SealingClass;
+	]
+	sh:property[
+		sh:path veo:subZone;
+		sh:minCount 0;
+		sh:maxCount *;
+		sh:class veo:Zone;
+	]
+.
