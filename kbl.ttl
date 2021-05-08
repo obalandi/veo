@@ -1,0 +1,1710 @@
+@prefix kbl: <http://www.kbl-ontology.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.kbl-ontology.org/> .
+
+<http://www.kbl-ontology.org/> rdf:type owl:Ontology ;
+                                owl:versionIRI <http://www.kbl-ontology.org/2.3> ;
+                                rdfs:label "KBL Ontology" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.kbl-ontology.org/accessory
+kbl:accessory rdf:type owl:ObjectProperty ;
+              rdfs:domain kbl:KBL_container ;
+              rdfs:range kbl:Accessory .
+
+
+###  http://www.kbl-ontology.org/accessory_occurrence
+kbl:accessory_occurrence rdf:type owl:ObjectProperty ;
+                         rdfs:domain kbl:Assembly_part ,
+                                     kbl:Harness ;
+                         rdfs:range kbl:Accessory_occurrence .
+
+
+###  http://www.kbl-ontology.org/alias_id
+kbl:alias_id rdf:type owl:ObjectProperty ;
+             rdfs:domain kbl:Accessory_occurrence ,
+                         kbl:Alias_identification ,
+                         kbl:Assembly_part_occurrence ,
+                         kbl:Co_pack_occurrence ,
+                         kbl:Component_occurrence ,
+                         kbl:Connector_occurrence ,
+                         kbl:Fixing_occurrence ,
+                         kbl:Node ,
+                         kbl:Part ,
+                         kbl:Segment ,
+                         kbl:Special_terminal_occurrence ,
+                         kbl:Wire_protection_occurrence ;
+             rdfs:range kbl:Alias_identification .
+
+
+###  http://www.kbl-ontology.org/approval
+kbl:approval rdf:type owl:ObjectProperty ;
+             rdfs:domain kbl:KBL_container ;
+             rdfs:range kbl:Approval .
+
+
+###  http://www.kbl-ontology.org/area
+kbl:area rdf:type owl:ObjectProperty ;
+         rdfs:domain kbl:Cross_section_area ;
+         rdfs:range kbl:Numerical_value .
+
+
+###  http://www.kbl-ontology.org/assembly_part
+kbl:assembly_part rdf:type owl:ObjectProperty ;
+                  rdfs:domain kbl:KBL_container ;
+                  rdfs:range kbl:Assembly_part .
+
+
+###  http://www.kbl-ontology.org/assembly_part_occurrence
+kbl:assembly_part_occurrence rdf:type owl:ObjectProperty ;
+                             rdfs:domain kbl:Assembly_part ,
+                                         kbl:Harness ;
+                             rdfs:range kbl:Assembly_part_occurrence .
+
+
+###  http://www.kbl-ontology.org/assigned_wire
+kbl:assigned_wire rdf:type owl:ObjectProperty ;
+                  rdfs:domain kbl:Wiring_group ;
+                  rdfs:range kbl:Core_occurrence ,
+                             kbl:Wire_occurrence .
+
+
+###  http://www.kbl-ontology.org/associated_parts
+kbl:associated_parts rdf:type owl:ObjectProperty ;
+                     rdfs:domain kbl:Contact_point ;
+                     rdfs:range kbl:Cavity_seal_occurrence ,
+                                kbl:Special_terminal_occurrence ,
+                                kbl:Terminal_occurrence .
+
+
+###  http://www.kbl-ontology.org/associated_plug
+kbl:associated_plug rdf:type owl:ObjectProperty ;
+                    rdfs:domain kbl:Cavity_occurrence ;
+                    rdfs:range kbl:Cavity_plug_occurrence .
+
+
+###  http://www.kbl-ontology.org/associated_protection
+kbl:associated_protection rdf:type owl:ObjectProperty ;
+                          rdfs:domain kbl:Protection_area ;
+                          rdfs:range kbl:Wire_protection_occurrence .
+
+
+###  http://www.kbl-ontology.org/bend_radius
+kbl:bend_radius rdf:type owl:ObjectProperty ;
+                rdfs:domain kbl:Core ,
+                            kbl:General_wire ,
+                            kbl:Node ;
+                rdfs:range kbl:Numerical_value .
+
+
+###  http://www.kbl-ontology.org/cartesian_point
+kbl:cartesian_point rdf:type owl:ObjectProperty ;
+                    rdfs:domain kbl:KBL_container ,
+                                kbl:Node ,
+                                kbl:Transformation ;
+                    rdfs:range kbl:Cartesian_point .
+
+
+###  http://www.kbl-ontology.org/cavities
+kbl:cavities rdf:type owl:ObjectProperty ;
+             rdfs:domain kbl:Slot ,
+                         kbl:Slot_occurrence ;
+             rdfs:range kbl:Cavity ,
+                        kbl:Cavity_occurrence .
+
+
+###  http://www.kbl-ontology.org/cavity_plug
+kbl:cavity_plug rdf:type owl:ObjectProperty ;
+                rdfs:domain kbl:KBL_container ;
+                rdfs:range kbl:Cavity_plug .
+
+
+###  http://www.kbl-ontology.org/cavity_plug_occurrence
+kbl:cavity_plug_occurrence rdf:type owl:ObjectProperty ;
+                           rdfs:domain kbl:Assembly_part ,
+                                       kbl:Harness ;
+                           rdfs:range kbl:Cavity_plug_occurrence .
+
+
+###  http://www.kbl-ontology.org/cavity_seal
+kbl:cavity_seal rdf:type owl:ObjectProperty ;
+                rdfs:domain kbl:KBL_container ;
+                rdfs:range kbl:Cavity_seal .
+
+
+###  http://www.kbl-ontology.org/cavity_seal_occurrence
+kbl:cavity_seal_occurrence rdf:type owl:ObjectProperty ;
+                           rdfs:domain kbl:Assembly_part ,
+                                       kbl:Harness ;
+                           rdfs:range kbl:Cavity_seal_occurrence .
+
+
+###  http://www.kbl-ontology.org/center_curve
+kbl:center_curve rdf:type owl:ObjectProperty ;
+                 rdfs:domain kbl:Segment ;
+                 rdfs:range kbl:B_spline_curve .
+
+
+###  http://www.kbl-ontology.org/change
+kbl:change rdf:type owl:ObjectProperty ;
+           rdfs:domain kbl:Part ;
+           rdfs:range kbl:Change .
+
+
+###  http://www.kbl-ontology.org/co_pack_occurrence
+kbl:co_pack_occurrence rdf:type owl:ObjectProperty ;
+                       rdfs:domain kbl:Assembly_part ,
+                                   kbl:Harness ;
+                       rdfs:range kbl:Co_pack_occurrence .
+
+
+###  http://www.kbl-ontology.org/co_pack_part
+kbl:co_pack_part rdf:type owl:ObjectProperty ;
+                 rdfs:domain kbl:KBL_container ;
+                 rdfs:range kbl:Co_pack_part .
+
+
+###  http://www.kbl-ontology.org/component
+kbl:component rdf:type owl:ObjectProperty ;
+              rdfs:domain kbl:KBL_container ;
+              rdfs:range kbl:Component .
+
+
+###  http://www.kbl-ontology.org/component_occurrence
+kbl:component_occurrence rdf:type owl:ObjectProperty ;
+                         rdfs:domain kbl:Assembly_part ,
+                                     kbl:Harness ;
+                         rdfs:range kbl:Component_occurrence .
+
+
+###  http://www.kbl-ontology.org/connection
+kbl:connection rdf:type owl:ObjectProperty ;
+               rdfs:domain kbl:Assembly_part ,
+                           kbl:Harness ;
+               rdfs:range kbl:Connection .
+
+
+###  http://www.kbl-ontology.org/connector_housing
+kbl:connector_housing rdf:type owl:ObjectProperty ;
+                      rdfs:domain kbl:KBL_container ;
+                      rdfs:range kbl:Connector_housing .
+
+
+###  http://www.kbl-ontology.org/connector_occurrence
+kbl:connector_occurrence rdf:type owl:ObjectProperty ;
+                         rdfs:domain kbl:Assembly_part ,
+                                     kbl:Harness ;
+                         rdfs:range kbl:Connector_occurrence .
+
+
+###  http://www.kbl-ontology.org/contact_point
+kbl:contact_point rdf:type owl:ObjectProperty ;
+                  rdfs:domain kbl:Extremity ;
+                  rdfs:range kbl:Contact_point .
+
+
+###  http://www.kbl-ontology.org/contact_points
+kbl:contact_points rdf:type owl:ObjectProperty ;
+                   rdfs:domain kbl:Connector_occurrence ;
+                   rdfs:range kbl:Contact_point .
+
+
+###  http://www.kbl-ontology.org/contacted_cavity
+kbl:contacted_cavity rdf:type owl:ObjectProperty ;
+                     rdfs:domain kbl:Contact_point ;
+                     rdfs:range kbl:Cavity_occurrence .
+
+
+###  http://www.kbl-ontology.org/control_points
+kbl:control_points rdf:type owl:ObjectProperty ;
+                   rdfs:domain kbl:B_spline_curve ;
+                   rdfs:range kbl:Cartesian_point .
+
+
+###  http://www.kbl-ontology.org/controlled_components
+kbl:controlled_components rdf:type owl:ObjectProperty ;
+                          rdfs:domain kbl:Module_configuration ;
+                          rdfs:range kbl:Accessory_occurrence ,
+                                     kbl:Assembly_part_occurrence ,
+                                     kbl:Cavity_plug_occurrence ,
+                                     kbl:Cavity_seal_occurrence ,
+                                     kbl:Co_pack_occurrence ,
+                                     kbl:Component_occurrence ,
+                                     kbl:Connection ,
+                                     kbl:Connector_occurrence ,
+                                     kbl:Fixing_occurrence ,
+                                     kbl:General_wire_occurrence ,
+                                     kbl:Special_terminal_occurrence ,
+                                     kbl:Terminal_occurrence ,
+                                     kbl:Wire_protection_occurrence ,
+                                     kbl:Wiring_group .
+
+
+###  http://www.kbl-ontology.org/core
+kbl:core rdf:type owl:ObjectProperty ;
+         rdfs:domain kbl:General_wire ;
+         rdfs:range kbl:Core .
+
+
+###  http://www.kbl-ontology.org/core_colour
+kbl:core_colour rdf:type owl:ObjectProperty ;
+                rdfs:domain kbl:Core ;
+                rdfs:range kbl:Wire_colour .
+
+
+###  http://www.kbl-ontology.org/core_occurrence
+kbl:core_occurrence rdf:type owl:ObjectProperty ;
+                    rdfs:domain kbl:Special_wire_occurrence ;
+                    rdfs:range kbl:Core_occurrence .
+
+
+###  http://www.kbl-ontology.org/cover_colour
+kbl:cover_colour rdf:type owl:ObjectProperty ;
+                 rdfs:domain kbl:General_wire ;
+                 rdfs:range kbl:Wire_colour .
+
+
+###  http://www.kbl-ontology.org/creation
+kbl:creation rdf:type owl:ObjectProperty ;
+             rdfs:domain kbl:KBL_container ;
+             rdfs:range kbl:Creation .
+
+
+###  http://www.kbl-ontology.org/cross_section_area
+kbl:cross_section_area rdf:type owl:ObjectProperty ;
+                       rdfs:domain kbl:Core ,
+                                   kbl:General_terminal ,
+                                   kbl:General_wire ;
+                       rdfs:range kbl:Numerical_value ,
+                                  kbl:Value_range .
+
+
+###  http://www.kbl-ontology.org/cross_section_area_information
+kbl:cross_section_area_information rdf:type owl:ObjectProperty ;
+                                   rdfs:domain kbl:Segment ;
+                                   rdfs:range kbl:Cross_section_area .
+
+
+###  http://www.kbl-ontology.org/dimension_specification
+kbl:dimension_specification rdf:type owl:ObjectProperty ;
+                            rdfs:domain kbl:KBL_container ;
+                            rdfs:range kbl:Dimension_specification .
+
+
+###  http://www.kbl-ontology.org/end_node
+kbl:end_node rdf:type owl:ObjectProperty ;
+             rdfs:domain kbl:Segment ;
+             rdfs:range kbl:Node .
+
+
+###  http://www.kbl-ontology.org/external_reference
+kbl:external_reference rdf:type owl:ObjectProperty ;
+                       rdfs:domain kbl:KBL_container ;
+                       rdfs:range kbl:External_reference .
+
+
+###  http://www.kbl-ontology.org/external_references
+kbl:external_references rdf:type owl:ObjectProperty ;
+                        rdfs:domain kbl:Connection ,
+                                    kbl:Part ;
+                        rdfs:range kbl:External_reference .
+
+
+###  http://www.kbl-ontology.org/extremities
+kbl:extremities rdf:type owl:ObjectProperty ;
+                rdfs:domain kbl:Connection ;
+                rdfs:range kbl:Extremity .
+
+
+###  http://www.kbl-ontology.org/fixing
+kbl:fixing rdf:type owl:ObjectProperty ;
+           rdfs:domain kbl:Fixing_assignment ,
+                       kbl:KBL_container ;
+           rdfs:range kbl:Accessory_occurrence ,
+                      kbl:Fixing ,
+                      kbl:Fixing_occurrence .
+
+
+###  http://www.kbl-ontology.org/fixing_assignment
+kbl:fixing_assignment rdf:type owl:ObjectProperty ;
+                      rdfs:domain kbl:Segment ;
+                      rdfs:range kbl:Fixing_assignment .
+
+
+###  http://www.kbl-ontology.org/fixing_occurrence
+kbl:fixing_occurrence rdf:type owl:ObjectProperty ;
+                      rdfs:domain kbl:Assembly_part ,
+                                  kbl:Harness ;
+                      rdfs:range kbl:Fixing_occurrence .
+
+
+###  http://www.kbl-ontology.org/general_terminal
+kbl:general_terminal rdf:type owl:ObjectProperty ;
+                     rdfs:domain kbl:KBL_container ;
+                     rdfs:range kbl:General_terminal .
+
+
+###  http://www.kbl-ontology.org/general_wire
+kbl:general_wire rdf:type owl:ObjectProperty ;
+                 rdfs:domain kbl:KBL_container ;
+                 rdfs:range kbl:General_wire .
+
+
+###  http://www.kbl-ontology.org/general_wire_occurrence
+kbl:general_wire_occurrence rdf:type owl:ObjectProperty ;
+                            rdfs:domain kbl:Assembly_part ,
+                                        kbl:Harness ;
+                            rdfs:range kbl:General_wire_occurrence .
+
+
+###  http://www.kbl-ontology.org/gradient
+kbl:gradient rdf:type owl:ObjectProperty ;
+             rdfs:domain kbl:Protection_area ;
+             rdfs:range kbl:Value_with_unit .
+
+
+###  http://www.kbl-ontology.org/harness
+kbl:harness rdf:type owl:ObjectProperty ;
+            rdfs:domain kbl:KBL_container ;
+            rdfs:range kbl:Harness .
+
+
+###  http://www.kbl-ontology.org/harness_configuration
+kbl:harness_configuration rdf:type owl:ObjectProperty ;
+                          rdfs:domain kbl:Harness ;
+                          rdfs:range kbl:Harness_configuration .
+
+
+###  http://www.kbl-ontology.org/installation_information
+kbl:installation_information rdf:type owl:ObjectProperty ;
+                             rdfs:domain kbl:Accessory_occurrence ,
+                                         kbl:Assembly_part_occurrence ,
+                                         kbl:Co_pack_occurrence ,
+                                         kbl:Connection ,
+                                         kbl:Connector_occurrence ,
+                                         kbl:Fixing_occurrence ,
+                                         kbl:General_wire_occurrence ,
+                                         kbl:Special_terminal_occurrence ,
+                                         kbl:Wire_protection_occurrence ;
+                             rdfs:range kbl:Installation_instruction .
+
+
+###  http://www.kbl-ontology.org/is_applied_to
+kbl:is_applied_to rdf:type owl:ObjectProperty ;
+                  rdfs:domain kbl:Approval ,
+                              kbl:Creation ;
+                  rdfs:range kbl:Part_with_title_block .
+
+
+###  http://www.kbl-ontology.org/length_information
+kbl:length_information rdf:type owl:ObjectProperty ;
+                       rdfs:domain kbl:Core_occurrence ,
+                                   kbl:General_wire_occurrence ;
+                       rdfs:range kbl:Wire_length .
+
+
+###  http://www.kbl-ontology.org/length_value
+kbl:length_value rdf:type owl:ObjectProperty ;
+                 rdfs:domain kbl:Wire_length ;
+                 rdfs:range kbl:Numerical_value .
+
+
+###  http://www.kbl-ontology.org/lower_limit
+kbl:lower_limit rdf:type owl:ObjectProperty ;
+                rdfs:domain kbl:Tolerance ;
+                rdfs:range kbl:Numerical_value .
+
+
+###  http://www.kbl-ontology.org/mass_information
+kbl:mass_information rdf:type owl:ObjectProperty ;
+                     rdfs:domain kbl:Part ;
+                     rdfs:range kbl:Numerical_value .
+
+
+###  http://www.kbl-ontology.org/material_information
+kbl:material_information rdf:type owl:ObjectProperty ;
+                         rdfs:domain kbl:Part ;
+                         rdfs:range kbl:Material .
+
+
+###  http://www.kbl-ontology.org/module
+kbl:module rdf:type owl:ObjectProperty ;
+           rdfs:domain kbl:Harness ;
+           rdfs:range kbl:Module .
+
+
+###  http://www.kbl-ontology.org/module_configuration
+kbl:module_configuration rdf:type owl:ObjectProperty ;
+                         rdfs:domain kbl:Harness ,
+                                     kbl:Module ;
+                         rdfs:range kbl:Module_configuration .
+
+
+###  http://www.kbl-ontology.org/module_families
+kbl:module_families rdf:type owl:ObjectProperty ;
+                    rdfs:domain kbl:Harness ;
+                    rdfs:range kbl:Module_family .
+
+
+###  http://www.kbl-ontology.org/modules
+kbl:modules rdf:type owl:ObjectProperty ;
+            rdfs:domain kbl:Harness_configuration ;
+            rdfs:range kbl:Module .
+
+
+###  http://www.kbl-ontology.org/mounting
+kbl:mounting rdf:type owl:ObjectProperty ;
+             rdfs:domain kbl:Component_occurrence ;
+             rdfs:range kbl:Cavity_occurrence ,
+                        kbl:Connector_occurrence ,
+                        kbl:Slot_occurrence .
+
+
+###  http://www.kbl-ontology.org/node
+kbl:node rdf:type owl:ObjectProperty ;
+         rdfs:domain kbl:KBL_container ;
+         rdfs:range kbl:Node .
+
+
+###  http://www.kbl-ontology.org/of_family
+kbl:of_family rdf:type owl:ObjectProperty ;
+              rdfs:domain kbl:Module ;
+              rdfs:range kbl:Module_family .
+
+
+###  http://www.kbl-ontology.org/origin
+kbl:origin rdf:type owl:ObjectProperty ;
+           rdfs:domain kbl:Dimension_specification ;
+           rdfs:range kbl:Accessory_occurrence ,
+                      kbl:Assembly_part_occurrence ,
+                      kbl:Connector_occurrence ,
+                      kbl:Dimension_specification ,
+                      kbl:Fixing_occurrence ,
+                      kbl:Node ,
+                      kbl:Special_terminal_occurrence .
+
+
+###  http://www.kbl-ontology.org/outside_diameter
+kbl:outside_diameter rdf:type owl:ObjectProperty ;
+                     rdfs:domain kbl:Core ,
+                                 kbl:General_terminal ,
+                                 kbl:General_wire ;
+                     rdfs:range kbl:Numerical_value ,
+                                kbl:Value_range .
+
+
+###  http://www.kbl-ontology.org/part
+kbl:part rdf:type owl:ObjectProperty ;
+         rdfs:domain kbl:Accessory_occurrence ,
+                     kbl:Assembly_part_occurrence ,
+                     kbl:Cavity_occurrence ,
+                     kbl:Cavity_plug_occurrence ,
+                     kbl:Cavity_seal_occurrence ,
+                     kbl:Co_pack_occurrence ,
+                     kbl:Component_occurrence ,
+                     kbl:Connector_occurrence ,
+                     kbl:Core_occurrence ,
+                     kbl:Fixing_occurrence ,
+                     kbl:General_wire_occurrence ,
+                     kbl:Slot_occurrence ,
+                     kbl:Special_terminal_occurrence ,
+                     kbl:Terminal_occurrence ,
+                     kbl:Wire_protection_occurrence ;
+         rdfs:range kbl:Accessory ,
+                    kbl:Assembly_part ,
+                    kbl:Cavity ,
+                    kbl:Cavity_plug ,
+                    kbl:Cavity_seal ,
+                    kbl:Co_pack_part ,
+                    kbl:Component ,
+                    kbl:Connector_housing ,
+                    kbl:Core ,
+                    kbl:Fixing ,
+                    kbl:General_terminal ,
+                    kbl:General_wire ,
+                    kbl:Slot ,
+                    kbl:Wire_protection .
+
+
+###  http://www.kbl-ontology.org/physical_length
+kbl:physical_length rdf:type owl:ObjectProperty ;
+                    rdfs:domain kbl:Segment ;
+                    rdfs:range kbl:Numerical_value .
+
+
+###  http://www.kbl-ontology.org/placement
+kbl:placement rdf:type owl:ObjectProperty ;
+              rdfs:domain kbl:Accessory_occurrence ,
+                          kbl:Assembly_part_occurrence ,
+                          kbl:Connector_occurrence ,
+                          kbl:Fixing_occurrence ,
+                          kbl:Special_terminal_occurrence ;
+              rdfs:range kbl:Transformation .
+
+
+###  http://www.kbl-ontology.org/processing_information
+kbl:processing_information rdf:type owl:ObjectProperty ;
+                           rdfs:domain kbl:Connection ,
+                                       kbl:Node ,
+                                       kbl:Part ,
+                                       kbl:Protection_area ,
+                                       kbl:Wiring_group ;
+                           rdfs:range kbl:Processing_instruction .
+
+
+###  http://www.kbl-ontology.org/protection_area
+kbl:protection_area rdf:type owl:ObjectProperty ;
+                    rdfs:domain kbl:Segment ;
+                    rdfs:range kbl:Protection_area .
+
+
+###  http://www.kbl-ontology.org/protection_length
+kbl:protection_length rdf:type owl:ObjectProperty ;
+                      rdfs:domain kbl:Wire_protection_occurrence ;
+                      rdfs:range kbl:Numerical_value .
+
+
+###  http://www.kbl-ontology.org/reference_element
+kbl:reference_element rdf:type owl:ObjectProperty ;
+                      rdfs:domain kbl:Accessory_occurrence ,
+                                  kbl:Connector_occurrence ;
+                      rdfs:range kbl:Connector_occurrence .
+
+
+###  http://www.kbl-ontology.org/referenced_components
+kbl:referenced_components rdf:type owl:ObjectProperty ;
+                          rdfs:domain kbl:Node ;
+                          rdfs:range kbl:Accessory_occurrence ,
+                                     kbl:Assembly_part_occurrence ,
+                                     kbl:Connector_occurrence ,
+                                     kbl:Fixing_occurrence ,
+                                     kbl:Special_terminal_occurrence ,
+                                     kbl:Wire_protection_occurrence .
+
+
+###  http://www.kbl-ontology.org/related_assembly
+kbl:related_assembly rdf:type owl:ObjectProperty ;
+                     rdfs:domain kbl:Specified_accessory_occurrence ,
+                                 kbl:Specified_cavity_plug_occurrence ,
+                                 kbl:Specified_cavity_seal_occurrence ,
+                                 kbl:Specified_co_pack_occurrence ,
+                                 kbl:Specified_component_occurrence ,
+                                 kbl:Specified_connector_occurrence ,
+                                 kbl:Specified_fixing_occurrence ,
+                                 kbl:Specified_special_terminal_occurrence ,
+                                 kbl:Specified_special_wire_occurrence ,
+                                 kbl:Specified_terminal_occurrence ,
+                                 kbl:Specified_wire_occurrence ,
+                                 kbl:Specified_wire_protection_occurrence ;
+                     rdfs:range kbl:Assembly_part_occurrence .
+
+
+###  http://www.kbl-ontology.org/related_occurrence
+kbl:related_occurrence rdf:type owl:ObjectProperty ;
+                       rdfs:domain kbl:Specified_accessory_occurrence ,
+                                   kbl:Specified_cavity_plug_occurrence ,
+                                   kbl:Specified_cavity_seal_occurrence ,
+                                   kbl:Specified_co_pack_occurrence ,
+                                   kbl:Specified_component_occurrence ,
+                                   kbl:Specified_connector_occurrence ,
+                                   kbl:Specified_fixing_occurrence ,
+                                   kbl:Specified_special_terminal_occurrence ,
+                                   kbl:Specified_special_wire_occurrence ,
+                                   kbl:Specified_terminal_occurrence ,
+                                   kbl:Specified_wire_occurrence ,
+                                   kbl:Specified_wire_protection_occurrence ;
+                       rdfs:range kbl:Accessory_occurrence ,
+                                  kbl:Cavity_plug_occurrence ,
+                                  kbl:Cavity_seal_occurrence ,
+                                  kbl:Co_pack_occurrence ,
+                                  kbl:Component_occurrence ,
+                                  kbl:Connector_occurrence ,
+                                  kbl:Fixing_occurrence ,
+                                  kbl:Special_terminal_occurrence ,
+                                  kbl:Special_wire_occurrence ,
+                                  kbl:Terminal_occurrence ,
+                                  kbl:Wire_occurrence ,
+                                  kbl:Wire_protection_occurrence .
+
+
+###  http://www.kbl-ontology.org/replaced
+kbl:replaced rdf:type owl:ObjectProperty ;
+             rdfs:domain kbl:Part_substitution ;
+             rdfs:range kbl:Cavity_plug_occurrence .
+
+
+###  http://www.kbl-ontology.org/replacing
+kbl:replacing rdf:type owl:ObjectProperty ;
+              rdfs:domain kbl:Cavity_seal_occurrence ,
+                          kbl:Special_terminal_occurrence ,
+                          kbl:Terminal_occurrence ;
+              rdfs:range kbl:Part_substitution .
+
+
+###  http://www.kbl-ontology.org/routed_wire
+kbl:routed_wire rdf:type owl:ObjectProperty ;
+                rdfs:domain kbl:Routing ;
+                rdfs:range kbl:Connection .
+
+
+###  http://www.kbl-ontology.org/routing
+kbl:routing rdf:type owl:ObjectProperty ;
+            rdfs:domain kbl:KBL_container ;
+            rdfs:range kbl:Routing .
+
+
+###  http://www.kbl-ontology.org/segment
+kbl:segment rdf:type owl:ObjectProperty ;
+            rdfs:domain kbl:KBL_container ;
+            rdfs:range kbl:Segment .
+
+
+###  http://www.kbl-ontology.org/segments
+kbl:segments rdf:type owl:ObjectProperty ;
+             rdfs:domain kbl:Routing ;
+             rdfs:range kbl:Segment .
+
+
+###  http://www.kbl-ontology.org/slots
+kbl:slots rdf:type owl:ObjectProperty ;
+          rdfs:domain kbl:Connector_housing ,
+                      kbl:Connector_occurrence ;
+          rdfs:range kbl:Slot ,
+                     kbl:Slot_occurrence .
+
+
+###  http://www.kbl-ontology.org/special_terminal_occurrence
+kbl:special_terminal_occurrence rdf:type owl:ObjectProperty ;
+                                rdfs:domain kbl:Assembly_part ,
+                                            kbl:Harness ;
+                                rdfs:range kbl:Special_terminal_occurrence .
+
+
+###  http://www.kbl-ontology.org/start_node
+kbl:start_node rdf:type owl:ObjectProperty ;
+               rdfs:domain kbl:Segment ;
+               rdfs:range kbl:Node .
+
+
+###  http://www.kbl-ontology.org/target
+kbl:target rdf:type owl:ObjectProperty ;
+           rdfs:domain kbl:Dimension_specification ;
+           rdfs:range kbl:Accessory_occurrence ,
+                      kbl:Assembly_part_occurrence ,
+                      kbl:Connector_occurrence ,
+                      kbl:Dimension_specification ,
+                      kbl:Fixing_occurrence ,
+                      kbl:Node ,
+                      kbl:Special_terminal_occurrence .
+
+
+###  http://www.kbl-ontology.org/terminal_occurrence
+kbl:terminal_occurrence rdf:type owl:ObjectProperty ;
+                        rdfs:domain kbl:Assembly_part ,
+                                    kbl:Harness ;
+                        rdfs:range kbl:Terminal_occurrence .
+
+
+###  http://www.kbl-ontology.org/tolerance_indication
+kbl:tolerance_indication rdf:type owl:ObjectProperty ;
+                         rdfs:domain kbl:Dimension_specification ;
+                         rdfs:range kbl:Tolerance .
+
+
+###  http://www.kbl-ontology.org/unit
+kbl:unit rdf:type owl:ObjectProperty ;
+         rdfs:domain kbl:KBL_container ;
+         rdfs:range kbl:Unit .
+
+
+###  http://www.kbl-ontology.org/unit_component
+kbl:unit_component rdf:type owl:ObjectProperty ;
+                   rdfs:domain kbl:Value_with_unit ;
+                   rdfs:range kbl:Unit .
+
+
+###  http://www.kbl-ontology.org/upper_limit
+kbl:upper_limit rdf:type owl:ObjectProperty ;
+                rdfs:domain kbl:Tolerance ;
+                rdfs:range kbl:Numerical_value .
+
+
+###  http://www.kbl-ontology.org/virtual_length
+kbl:virtual_length rdf:type owl:ObjectProperty ;
+                   rdfs:domain kbl:Segment ;
+                   rdfs:range kbl:Numerical_value .
+
+
+###  http://www.kbl-ontology.org/wire
+kbl:wire rdf:type owl:ObjectProperty ;
+         rdfs:domain kbl:Connection ;
+         rdfs:range kbl:Core_occurrence ,
+                    kbl:Wire_occurrence .
+
+
+###  http://www.kbl-ontology.org/wire_protection
+kbl:wire_protection rdf:type owl:ObjectProperty ;
+                    rdfs:domain kbl:KBL_container ;
+                    rdfs:range kbl:Wire_protection .
+
+
+###  http://www.kbl-ontology.org/wire_protection_occurrence
+kbl:wire_protection_occurrence rdf:type owl:ObjectProperty ;
+                               rdfs:domain kbl:Assembly_part ,
+                                           kbl:Harness ;
+                               rdfs:range kbl:Wire_protection_occurrence .
+
+
+###  http://www.kbl-ontology.org/wire_size
+kbl:wire_size rdf:type owl:ObjectProperty ;
+              rdfs:domain kbl:Cavity_seal ;
+              rdfs:range kbl:Value_range .
+
+
+###  http://www.kbl-ontology.org/wiring_group
+kbl:wiring_group rdf:type owl:ObjectProperty ;
+                 rdfs:domain kbl:Assembly_part ,
+                             kbl:Harness ;
+                 rdfs:range kbl:Wiring_group .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.kbl-ontology.org/abbreviation
+kbl:abbreviation rdf:type owl:DatatypeProperty ;
+                 rdfs:domain kbl:Part ;
+                 rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/accessory_type
+kbl:accessory_type rdf:type owl:DatatypeProperty ;
+                   rdfs:domain kbl:Accessory ;
+                   rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/alias_id
+kbl:alias_id rdf:type owl:DatatypeProperty ;
+             rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/approver_department
+kbl:approver_department rdf:type owl:DatatypeProperty ;
+                        rdfs:domain kbl:Change ;
+                        rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/approver_name
+kbl:approver_name rdf:type owl:DatatypeProperty ;
+                  rdfs:domain kbl:Change ;
+                  rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/cable_designator
+kbl:cable_designator rdf:type owl:DatatypeProperty ;
+                     rdfs:domain kbl:Core ,
+                                 kbl:General_wire ;
+                     rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/car_classification_level_2
+kbl:car_classification_level_2 rdf:type owl:DatatypeProperty ;
+                               rdfs:domain kbl:Part_with_title_block ;
+                               rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/car_classification_level_3
+kbl:car_classification_level_3 rdf:type owl:DatatypeProperty ;
+                               rdfs:domain kbl:Part_with_title_block ;
+                               rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/car_classification_level_4
+kbl:car_classification_level_4 rdf:type owl:DatatypeProperty ;
+                               rdfs:domain kbl:Part_with_title_block ;
+                               rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/cavity_number
+kbl:cavity_number rdf:type owl:DatatypeProperty ;
+                  rdfs:domain kbl:Cavity ;
+                  rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/change_date
+kbl:change_date rdf:type owl:DatatypeProperty ;
+                rdfs:domain kbl:Change ;
+                rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/change_level
+kbl:change_level rdf:type owl:DatatypeProperty ;
+                 rdfs:domain kbl:External_reference ;
+                 rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/change_request
+kbl:change_request rdf:type owl:DatatypeProperty ;
+                   rdfs:domain kbl:Change ;
+                   rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/colour
+kbl:colour rdf:type owl:DatatypeProperty ;
+           rdfs:domain kbl:Cavity_plug ,
+                       kbl:Cavity_seal ;
+           rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/colour_type
+kbl:colour_type rdf:type owl:DatatypeProperty ;
+                rdfs:domain kbl:Wire_colour ;
+                rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/colour_value
+kbl:colour_value rdf:type owl:DatatypeProperty ;
+                 rdfs:domain kbl:Wire_colour ;
+                 rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/company_name
+kbl:company_name rdf:type owl:DatatypeProperty ;
+                 rdfs:domain kbl:Part ;
+                 rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/configuration_type
+kbl:configuration_type rdf:type owl:DatatypeProperty ;
+                       rdfs:domain kbl:Module_configuration ;
+                       rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/content
+kbl:content rdf:type owl:DatatypeProperty ;
+            rdfs:domain kbl:Harness ,
+                        kbl:Module ;
+            rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/coordinates
+kbl:coordinates rdf:type owl:DatatypeProperty ;
+                rdfs:domain kbl:Cartesian_point ;
+                rdfs:range xsd:double .
+
+
+###  http://www.kbl-ontology.org/copyright_note
+kbl:copyright_note rdf:type owl:DatatypeProperty ;
+                   rdfs:domain kbl:Part ;
+                   rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/creating_system
+kbl:creating_system rdf:type owl:DatatypeProperty ;
+                    rdfs:domain kbl:External_reference ;
+                    rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/data_format
+kbl:data_format rdf:type owl:DatatypeProperty ;
+                rdfs:domain kbl:External_reference ;
+                rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/date
+kbl:date rdf:type owl:DatatypeProperty ;
+         rdfs:domain kbl:Approval ,
+                     kbl:Creation ;
+         rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/degree
+kbl:degree rdf:type owl:DatatypeProperty ;
+           rdfs:domain kbl:B_spline_curve ;
+           rdfs:range xsd:integer .
+
+
+###  http://www.kbl-ontology.org/degree_of_maturity
+kbl:degree_of_maturity rdf:type owl:DatatypeProperty ;
+                       rdfs:domain kbl:Part ;
+                       rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/department
+kbl:department rdf:type owl:DatatypeProperty ;
+               rdfs:domain kbl:Approval ,
+                           kbl:Creation ;
+               rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/description
+kbl:description rdf:type owl:DatatypeProperty ;
+                rdfs:domain kbl:Accessory_occurrence ,
+                            kbl:Alias_identification ,
+                            kbl:Assembly_part_occurrence ,
+                            kbl:Change ,
+                            kbl:Co_pack_occurrence ,
+                            kbl:Component_occurrence ,
+                            kbl:Connection ,
+                            kbl:Connector_occurrence ,
+                            kbl:Fixing_occurrence ,
+                            kbl:Module_family ,
+                            kbl:Part ,
+                            kbl:Special_terminal_occurrence ,
+                            kbl:Wire_protection_occurrence ;
+                rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/designer_department
+kbl:designer_department rdf:type owl:DatatypeProperty ;
+                        rdfs:domain kbl:Change ;
+                        rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/document_number
+kbl:document_number rdf:type owl:DatatypeProperty ;
+                    rdfs:domain kbl:External_reference ;
+                    rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/document_type
+kbl:document_type rdf:type owl:DatatypeProperty ;
+                  rdfs:domain kbl:External_reference ;
+                  rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/end_location
+kbl:end_location rdf:type owl:DatatypeProperty ;
+                 rdfs:domain kbl:Protection_area ;
+                 rdfs:range xsd:double .
+
+
+###  http://www.kbl-ontology.org/end_vector
+kbl:end_vector rdf:type owl:DatatypeProperty ;
+               rdfs:domain kbl:Segment ;
+               rdfs:range xsd:double .
+
+
+###  http://www.kbl-ontology.org/file_name
+kbl:file_name rdf:type owl:DatatypeProperty ;
+              rdfs:domain kbl:External_reference ;
+              rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/fixing_type
+kbl:fixing_type rdf:type owl:DatatypeProperty ;
+                rdfs:domain kbl:Fixing ;
+                rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/form
+kbl:form rdf:type owl:DatatypeProperty ;
+         rdfs:domain kbl:Segment ;
+         rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/housing_code
+kbl:housing_code rdf:type owl:DatatypeProperty ;
+                 rdfs:domain kbl:Connector_housing ;
+                 rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/housing_colour
+kbl:housing_colour rdf:type owl:DatatypeProperty ;
+                   rdfs:domain kbl:Connector_housing ;
+                   rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/housing_type
+kbl:housing_type rdf:type owl:DatatypeProperty ;
+                 rdfs:domain kbl:Connector_housing ;
+                 rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/id
+kbl:id rdf:type owl:DatatypeProperty ;
+       rdfs:domain kbl:Accessory_occurrence ,
+                   kbl:Assembly_part_occurrence ,
+                   kbl:Change ,
+                   kbl:Co_pack_occurrence ,
+                   kbl:Component_occurrence ,
+                   kbl:Connection ,
+                   kbl:Connector_occurrence ,
+                   kbl:Contact_point ,
+                   kbl:Core ,
+                   kbl:Fixing_occurrence ,
+                   kbl:Module_family ,
+                   kbl:Node ,
+                   kbl:Segment ,
+                   kbl:Slot ,
+                   kbl:Special_terminal_occurrence ,
+                   kbl:Wire_protection_occurrence ,
+                   kbl:Wiring_group ;
+       rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/instruction_type
+kbl:instruction_type rdf:type owl:DatatypeProperty ;
+                     rdfs:domain kbl:Installation_instruction ,
+                                 kbl:Processing_instruction ;
+                     rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/instruction_value
+kbl:instruction_value rdf:type owl:DatatypeProperty ;
+                      rdfs:domain kbl:Installation_instruction ,
+                                  kbl:Processing_instruction ;
+                      rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/length_type
+kbl:length_type rdf:type owl:DatatypeProperty ;
+                rdfs:domain kbl:Wire_length ;
+                rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/location
+kbl:location rdf:type owl:DatatypeProperty ;
+             rdfs:domain kbl:External_reference ,
+                         kbl:Fixing_assignment ;
+             rdfs:range xsd:double ,
+                        xsd:string .
+
+
+###  http://www.kbl-ontology.org/logistic_control_information
+kbl:logistic_control_information rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain kbl:Harness_configuration ,
+                                             kbl:Module_configuration ;
+                                 rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/material_key
+kbl:material_key rdf:type owl:DatatypeProperty ;
+                 rdfs:domain kbl:Material ;
+                 rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/material_reference_system
+kbl:material_reference_system rdf:type owl:DatatypeProperty ;
+                              rdfs:domain kbl:Material ;
+                              rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/maximum
+kbl:maximum rdf:type owl:DatatypeProperty ;
+            rdfs:domain kbl:Value_range ;
+            rdfs:range xsd:double .
+
+
+###  http://www.kbl-ontology.org/minimum
+kbl:minimum rdf:type owl:DatatypeProperty ;
+            rdfs:domain kbl:Value_range ;
+            rdfs:range xsd:double .
+
+
+###  http://www.kbl-ontology.org/model_year
+kbl:model_year rdf:type owl:DatatypeProperty ;
+               rdfs:domain kbl:Part_with_title_block ;
+               rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/name
+kbl:name rdf:type owl:DatatypeProperty ;
+         rdfs:domain kbl:Approval ,
+                     kbl:Creation ;
+         rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/number_of_cavities
+kbl:number_of_cavities rdf:type owl:DatatypeProperty ;
+                       rdfs:domain kbl:Slot ;
+                       rdfs:range xsd:integer .
+
+
+###  http://www.kbl-ontology.org/orientation
+kbl:orientation rdf:type owl:DatatypeProperty ;
+                rdfs:domain kbl:Fixing_assignment ;
+                rdfs:range xsd:double .
+
+
+###  http://www.kbl-ontology.org/part_number
+kbl:part_number rdf:type owl:DatatypeProperty ;
+                rdfs:domain kbl:Part ;
+                rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/part_type
+kbl:part_type rdf:type owl:DatatypeProperty ;
+              rdfs:domain kbl:Assembly_part ,
+                          kbl:Co_pack_part ;
+              rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/plating_material
+kbl:plating_material rdf:type owl:DatatypeProperty ;
+                     rdfs:domain kbl:General_terminal ;
+                     rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/plug_type
+kbl:plug_type rdf:type owl:DatatypeProperty ;
+              rdfs:domain kbl:Cavity_plug ;
+              rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/position_on_wire
+kbl:position_on_wire rdf:type owl:DatatypeProperty ;
+                     rdfs:domain kbl:Extremity ;
+                     rdfs:range xsd:double .
+
+
+###  http://www.kbl-ontology.org/predecessor_part_number
+kbl:predecessor_part_number rdf:type owl:DatatypeProperty ;
+                            rdfs:domain kbl:Part ;
+                            rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/project_number
+kbl:project_number rdf:type owl:DatatypeProperty ;
+                   rdfs:domain kbl:Part_with_title_block ;
+                   rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/protection_type
+kbl:protection_type rdf:type owl:DatatypeProperty ;
+                    rdfs:domain kbl:Wire_protection ;
+                    rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/responsible_designer
+kbl:responsible_designer rdf:type owl:DatatypeProperty ;
+                         rdfs:domain kbl:Change ;
+                         rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/scope
+kbl:scope rdf:type owl:DatatypeProperty ;
+          rdfs:domain kbl:Alias_identification ;
+          rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/seal_type
+kbl:seal_type rdf:type owl:DatatypeProperty ;
+              rdfs:domain kbl:Cavity_seal ;
+              rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/si_dimension
+kbl:si_dimension rdf:type owl:DatatypeProperty ;
+                 rdfs:domain kbl:Unit ;
+                 rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/si_prefix
+kbl:si_prefix rdf:type owl:DatatypeProperty ;
+              rdfs:domain kbl:Unit ;
+              rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/si_unit_name
+kbl:si_unit_name rdf:type owl:DatatypeProperty ;
+                 rdfs:domain kbl:Unit ;
+                 rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/signal_name
+kbl:signal_name rdf:type owl:DatatypeProperty ;
+                rdfs:domain kbl:Connection ;
+                rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/special_wire_id
+kbl:special_wire_id rdf:type owl:DatatypeProperty ;
+                    rdfs:domain kbl:Special_wire_occurrence ;
+                    rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/start_location
+kbl:start_location rdf:type owl:DatatypeProperty ;
+                   rdfs:domain kbl:Protection_area ;
+                   rdfs:range xsd:double .
+
+
+###  http://www.kbl-ontology.org/start_vector
+kbl:start_vector rdf:type owl:DatatypeProperty ;
+                 rdfs:domain kbl:Segment ;
+                 rdfs:range xsd:double .
+
+
+###  http://www.kbl-ontology.org/taping_direction
+kbl:taping_direction rdf:type owl:DatatypeProperty ;
+                     rdfs:domain kbl:Protection_area ;
+                     rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/terminal_type
+kbl:terminal_type rdf:type owl:DatatypeProperty ;
+                  rdfs:domain kbl:General_terminal ;
+                  rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/type
+kbl:type rdf:type owl:DatatypeProperty ;
+         rdfs:domain kbl:Wiring_group ;
+         rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/type_dependent_parameter
+kbl:type_dependent_parameter rdf:type owl:DatatypeProperty ;
+                             rdfs:domain kbl:Wire_protection ;
+                             rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/type_of_approval
+kbl:type_of_approval rdf:type owl:DatatypeProperty ;
+                     rdfs:domain kbl:Approval ;
+                     rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/u
+kbl:u rdf:type owl:DatatypeProperty ;
+      rdfs:domain kbl:Transformation ;
+      rdfs:range xsd:double .
+
+
+###  http://www.kbl-ontology.org/unit_name
+kbl:unit_name rdf:type owl:DatatypeProperty ;
+              rdfs:domain kbl:Unit ;
+              rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/usage
+kbl:usage rdf:type owl:DatatypeProperty ;
+          rdfs:domain kbl:Connector_occurrence ;
+          rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/v
+kbl:v rdf:type owl:DatatypeProperty ;
+      rdfs:domain kbl:Transformation ;
+      rdfs:range xsd:double .
+
+
+###  http://www.kbl-ontology.org/value_component
+kbl:value_component rdf:type owl:DatatypeProperty ;
+                    rdfs:domain kbl:Numerical_value ;
+                    rdfs:range xsd:double .
+
+
+###  http://www.kbl-ontology.org/value_determination
+kbl:value_determination rdf:type owl:DatatypeProperty ;
+                        rdfs:domain kbl:Cross_section_area ;
+                        rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/version
+kbl:version rdf:type owl:DatatypeProperty ;
+            rdfs:domain kbl:Part ;
+            rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/wire_number
+kbl:wire_number rdf:type owl:DatatypeProperty ;
+                rdfs:domain kbl:Core_occurrence ,
+                            kbl:Wire_occurrence ;
+                rdfs:range xsd:string .
+
+
+###  http://www.kbl-ontology.org/wire_type
+kbl:wire_type rdf:type owl:DatatypeProperty ;
+              rdfs:domain kbl:Core ,
+                          kbl:General_wire ;
+              rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.kbl-ontology.org/Accessory
+kbl:Accessory rdf:type owl:Class ;
+              rdfs:subClassOf kbl:Part .
+
+
+###  http://www.kbl-ontology.org/Accessory_occurrence
+kbl:Accessory_occurrence rdf:type owl:Class ;
+                         rdfs:subClassOf kbl:Occurrence .
+
+
+###  http://www.kbl-ontology.org/Alias_identification
+kbl:Alias_identification rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/Approval
+kbl:Approval rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/Assembly_part
+kbl:Assembly_part rdf:type owl:Class ;
+                  rdfs:subClassOf kbl:Part .
+
+
+###  http://www.kbl-ontology.org/Assembly_part_occurrence
+kbl:Assembly_part_occurrence rdf:type owl:Class ;
+                             rdfs:subClassOf kbl:Occurrence .
+
+
+###  http://www.kbl-ontology.org/B_spline_curve
+kbl:B_spline_curve rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/Cartesian_point
+kbl:Cartesian_point rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/Cavity
+kbl:Cavity rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/Cavity_occurrence
+kbl:Cavity_occurrence rdf:type owl:Class ;
+                      rdfs:subClassOf kbl:Occurrence .
+
+
+###  http://www.kbl-ontology.org/Cavity_plug
+kbl:Cavity_plug rdf:type owl:Class ;
+                rdfs:subClassOf kbl:Part .
+
+
+###  http://www.kbl-ontology.org/Cavity_plug_occurrence
+kbl:Cavity_plug_occurrence rdf:type owl:Class ;
+                           rdfs:subClassOf kbl:Occurrence .
+
+
+###  http://www.kbl-ontology.org/Cavity_seal
+kbl:Cavity_seal rdf:type owl:Class ;
+                rdfs:subClassOf kbl:Part .
+
+
+###  http://www.kbl-ontology.org/Cavity_seal_occurrence
+kbl:Cavity_seal_occurrence rdf:type owl:Class ;
+                           rdfs:subClassOf kbl:Occurrence .
+
+
+###  http://www.kbl-ontology.org/Change
+kbl:Change rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/Co_pack_occurrence
+kbl:Co_pack_occurrence rdf:type owl:Class ;
+                       rdfs:subClassOf kbl:Occurrence .
+
+
+###  http://www.kbl-ontology.org/Co_pack_part
+kbl:Co_pack_part rdf:type owl:Class ;
+                 rdfs:subClassOf kbl:Part .
+
+
+###  http://www.kbl-ontology.org/Component
+kbl:Component rdf:type owl:Class ;
+              rdfs:subClassOf kbl:Part .
+
+
+###  http://www.kbl-ontology.org/Component_occurrence
+kbl:Component_occurrence rdf:type owl:Class ;
+                         rdfs:subClassOf kbl:Occurrence .
+
+
+###  http://www.kbl-ontology.org/Connection
+kbl:Connection rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/Connector_housing
+kbl:Connector_housing rdf:type owl:Class ;
+                      rdfs:subClassOf kbl:Part .
+
+
+###  http://www.kbl-ontology.org/Connector_occurrence
+kbl:Connector_occurrence rdf:type owl:Class ;
+                         rdfs:subClassOf kbl:Occurrence .
+
+
+###  http://www.kbl-ontology.org/Contact_point
+kbl:Contact_point rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/Core
+kbl:Core rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/Core_occurrence
+kbl:Core_occurrence rdf:type owl:Class ;
+                    rdfs:subClassOf kbl:Occurrence .
+
+
+###  http://www.kbl-ontology.org/Creation
+kbl:Creation rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/Cross_section_area
+kbl:Cross_section_area rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/Dimension_specification
+kbl:Dimension_specification rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/External_reference
+kbl:External_reference rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/Extremity
+kbl:Extremity rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/Fixing
+kbl:Fixing rdf:type owl:Class ;
+           rdfs:subClassOf kbl:Part .
+
+
+###  http://www.kbl-ontology.org/Fixing_assignment
+kbl:Fixing_assignment rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/Fixing_occurrence
+kbl:Fixing_occurrence rdf:type owl:Class ;
+                      rdfs:subClassOf kbl:Occurrence .
+
+
+###  http://www.kbl-ontology.org/General_terminal
+kbl:General_terminal rdf:type owl:Class ;
+                     rdfs:subClassOf kbl:Part .
+
+
+###  http://www.kbl-ontology.org/General_wire
+kbl:General_wire rdf:type owl:Class ;
+                 rdfs:subClassOf kbl:Part .
+
+
+###  http://www.kbl-ontology.org/General_wire_occurrence
+kbl:General_wire_occurrence rdf:type owl:Class ;
+                            rdfs:subClassOf kbl:Occurrence .
+
+
+###  http://www.kbl-ontology.org/Harness
+kbl:Harness rdf:type owl:Class ;
+            rdfs:subClassOf kbl:Part_with_title_block .
+
+
+###  http://www.kbl-ontology.org/Harness_configuration
+kbl:Harness_configuration rdf:type owl:Class ;
+                          rdfs:subClassOf kbl:Part_with_title_block .
+
+
+###  http://www.kbl-ontology.org/Installation_instruction
+kbl:Installation_instruction rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/KBL_container
+kbl:KBL_container rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/Material
+kbl:Material rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/Module
+kbl:Module rdf:type owl:Class ;
+           rdfs:subClassOf kbl:Part_with_title_block .
+
+
+###  http://www.kbl-ontology.org/Module_configuration
+kbl:Module_configuration rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/Module_family
+kbl:Module_family rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/Node
+kbl:Node rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/Numerical_value
+kbl:Numerical_value rdf:type owl:Class ;
+                    rdfs:subClassOf kbl:Value_with_unit .
+
+
+###  http://www.kbl-ontology.org/Occurrence
+kbl:Occurrence rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/Part
+kbl:Part rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/Part_substitution
+kbl:Part_substitution rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/Part_with_title_block
+kbl:Part_with_title_block rdf:type owl:Class ;
+                          rdfs:subClassOf kbl:Part .
+
+
+###  http://www.kbl-ontology.org/Processing_instruction
+kbl:Processing_instruction rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/Protection_area
+kbl:Protection_area rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/Routing
+kbl:Routing rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/Segment
+kbl:Segment rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/Slot
+kbl:Slot rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/Slot_occurrence
+kbl:Slot_occurrence rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/Special_terminal_occurrence
+kbl:Special_terminal_occurrence rdf:type owl:Class ;
+                                rdfs:subClassOf kbl:Occurrence .
+
+
+###  http://www.kbl-ontology.org/Special_wire_occurrence
+kbl:Special_wire_occurrence rdf:type owl:Class ;
+                            rdfs:subClassOf kbl:General_wire_occurrence .
+
+
+###  http://www.kbl-ontology.org/Specified_accessory_occurrence
+kbl:Specified_accessory_occurrence rdf:type owl:Class ;
+                                   rdfs:subClassOf kbl:Accessory_occurrence .
+
+
+###  http://www.kbl-ontology.org/Specified_cavity_plug_occurrence
+kbl:Specified_cavity_plug_occurrence rdf:type owl:Class ;
+                                     rdfs:subClassOf kbl:Cavity_plug_occurrence .
+
+
+###  http://www.kbl-ontology.org/Specified_cavity_seal_occurrence
+kbl:Specified_cavity_seal_occurrence rdf:type owl:Class ;
+                                     rdfs:subClassOf kbl:Cavity_seal_occurrence .
+
+
+###  http://www.kbl-ontology.org/Specified_co_pack_occurrence
+kbl:Specified_co_pack_occurrence rdf:type owl:Class ;
+                                 rdfs:subClassOf kbl:Co_pack_occurrence .
+
+
+###  http://www.kbl-ontology.org/Specified_component_occurrence
+kbl:Specified_component_occurrence rdf:type owl:Class ;
+                                   rdfs:subClassOf kbl:Component_occurrence .
+
+
+###  http://www.kbl-ontology.org/Specified_connector_occurrence
+kbl:Specified_connector_occurrence rdf:type owl:Class ;
+                                   rdfs:subClassOf kbl:Connector_occurrence .
+
+
+###  http://www.kbl-ontology.org/Specified_fixing_occurrence
+kbl:Specified_fixing_occurrence rdf:type owl:Class ;
+                                rdfs:subClassOf kbl:Fixing_occurrence .
+
+
+###  http://www.kbl-ontology.org/Specified_special_terminal_occurrence
+kbl:Specified_special_terminal_occurrence rdf:type owl:Class ;
+                                          rdfs:subClassOf kbl:Special_terminal_occurrence .
+
+
+###  http://www.kbl-ontology.org/Specified_special_wire_occurrence
+kbl:Specified_special_wire_occurrence rdf:type owl:Class ;
+                                      rdfs:subClassOf kbl:Special_wire_occurrence .
+
+
+###  http://www.kbl-ontology.org/Specified_terminal_occurrence
+kbl:Specified_terminal_occurrence rdf:type owl:Class ;
+                                  rdfs:subClassOf kbl:Terminal_occurrence .
+
+
+###  http://www.kbl-ontology.org/Specified_wire_occurrence
+kbl:Specified_wire_occurrence rdf:type owl:Class ;
+                              rdfs:subClassOf kbl:Wire_occurrence .
+
+
+###  http://www.kbl-ontology.org/Specified_wire_protection_occurrence
+kbl:Specified_wire_protection_occurrence rdf:type owl:Class ;
+                                         rdfs:subClassOf kbl:Wire_protection_occurrence .
+
+
+###  http://www.kbl-ontology.org/Terminal_occurrence
+kbl:Terminal_occurrence rdf:type owl:Class ;
+                        rdfs:subClassOf kbl:Occurrence .
+
+
+###  http://www.kbl-ontology.org/Tolerance
+kbl:Tolerance rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/Transformation
+kbl:Transformation rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/Unit
+kbl:Unit rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/Value_range
+kbl:Value_range rdf:type owl:Class ;
+                rdfs:subClassOf kbl:Value_with_unit .
+
+
+###  http://www.kbl-ontology.org/Value_with_unit
+kbl:Value_with_unit rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/Wire_colour
+kbl:Wire_colour rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/Wire_length
+kbl:Wire_length rdf:type owl:Class .
+
+
+###  http://www.kbl-ontology.org/Wire_occurrence
+kbl:Wire_occurrence rdf:type owl:Class ;
+                    rdfs:subClassOf kbl:General_wire_occurrence .
+
+
+###  http://www.kbl-ontology.org/Wire_protection
+kbl:Wire_protection rdf:type owl:Class ;
+                    rdfs:subClassOf kbl:Part .
+
+
+###  http://www.kbl-ontology.org/Wire_protection_occurrence
+kbl:Wire_protection_occurrence rdf:type owl:Class ;
+                               rdfs:subClassOf kbl:Occurrence .
+
+
+###  http://www.kbl-ontology.org/Wiring_group
+kbl:Wiring_group rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
